@@ -1,4 +1,4 @@
-# Google Rezensionen API
+# Google Rezensionen API Free Version
 hummelt und partner | Werbeagentur GmbH
 
 [![release](https://img.shields.io/github/v/release/team-hummelt/google-rezensionen-api?style=plastic)](https://github.com/team-hummelt/google-rezensionen-api)
@@ -7,11 +7,11 @@ hummelt und partner | Werbeagentur GmbH
 
 ***
 
-### Google-Rezensionen API
+### Google-Rezensionen API Free Version
 * Contributors: jwiecker
-* Tags: bootstrap, formular
+* Tags: google, rezension, google rezension, privacy friendly, google privacy friendly, bewertung, google bewertung
 * Requires at least: 5.9
-* Tested up to: 5.8
+* Tested up to: 5.6
 * Stable tag: 1.0.0
 * Version: 1.0.0
 * Requires PHP: 7.4
