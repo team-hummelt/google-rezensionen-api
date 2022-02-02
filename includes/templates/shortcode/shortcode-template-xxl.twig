@@ -1,0 +1,56 @@
+<div class="google-rezension-plugin {{ d.extraClass }}">
+    <div class="col-xl-6 col-12">
+        <div class="google-rezension-card" style="background-color: {{ d.bg_color }}">
+            <div class="row g-0">
+                <div class="col-lg-4 overflow-hidden">
+                    <a target="_blank" href="{{ d.map_url }}">
+                        <img src="{{ d.img_url }}"
+                             class="img-google-preview template-xxl rounded-start" title="{{ d.name }}" alt="{{ d.name }}">
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-body position-relative">
+                        <h5 class="card-title d-md-flex d-block flex-wrap align-items-center">
+                                                    <span>
+                                                        <i class="text-google fa fa-google"></i>
+                                                        &nbsp;{{ d.l.google_rezensionen }}
+                                                    </span>
+
+                        </h5>
+                        <hr>
+                        <div class="rezension-card-name">{{ d.name }}</div>
+                        <p class="star-wrapper card-text fs-6">
+                            {{ d.user_rating }}
+                            {% autoescape false %}
+                                {{ d.stars }}
+                            {% endautoescape %}
+                            <a target="_blank" class="google-car-link text-decoration-none"
+                               title="{{ d.name }}"
+                               href="https://www.google.com/search?q={{ d.google_url }}">
+                                {{ d.user_ratings_total }} {{ d.l.google }}-{{ d.lang_rezension }}
+                            </a>
+                        </p>
+                        <hr>
+                        <p class="card-text">
+                            <span class="d-block">
+                                 <i class="fa fa-home"></i>
+                                <b class="strong-font-weight">{{ d.l.address }}:</b>
+                                <span> {{ d.adresse.street }} {{ d.adresse.hnr }}, {{ d.adresse.plz }} {{ d.adresse.stadt }}</span>
+                            </span>
+                            <span class="d-block">
+                                  <i class="fa fa-phone"></i>
+                                  <b class="strong-font-weight">{{ d.l.phone }}:</b>
+                                  <span>
+                                      <a title="{{ d.name }}" class="text-decoration-none"
+                                         href="Tel:{{ d.formatted_phone_number }}">
+                                          {{ d.formatted_phone_number }}
+                                      </a>
+                                  </span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

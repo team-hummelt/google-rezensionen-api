@@ -1,0 +1,73 @@
+
+    {% for d in data.data %}
+        <div id="target{{ d.place_id }}" class="col-xl-6 col-12">
+            <div class="card ">
+                <div class="row g-0">
+                    <div class="col-lg-4 overflow-hidden">
+                        <a target="_blank" href="{{ d.map_url }}">
+                            <img src="{{ d.img_url }}"
+                                 class="img-google-preview rounded-start" alt="...">
+                        </a>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card-body position-relative">
+                            <h5 class="card-title d-md-flex d-block flex-wrap align-items-center">
+                                                    <span>
+                                                        <i class="text-google fa fa-google"></i>
+                                                        &nbsp;{{ data.l.google_rezensionen }}
+                                                    </span>
+                                <div class="ms-auto pt-md-0 pt-3">
+                                    <button data-bs-toggle="modal" data-bs-target="#rezensionDeleteModal"
+                                            data-bs-id="{{ d.place_id }}" data-bs-method="delete_rezension"
+                                            class="btn btn-edit-card btn-card btn-card-danger btn-outline-light">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                    <button data-id="{{ d.place_id }}"
+                                            class="btn btn-card btn-card-settings btn-card-blue btn-outline-light">
+                                        <i class="fa fa-navicon"></i>
+                                    </button>
+                                </div>
+                            </h5>
+                            <hr>
+                            <div class="rezension-card-name">{{ d.name }}</div>
+                            <p class="star-wrapper card-text fs-6">
+                                {{ d.user_rating }}
+                                {% autoescape false %}
+                                    {{ d.stars }}
+                                {% endautoescape %}
+                                <a target="_blank" class="google-car-link text-decoration-none"
+                                   href="https://www.google.com/search?q={{ d.google_url }}">
+                                    {{ d.user_ratings_total }} {{ data.l.google }}-{{ d.lang_rezension }}
+                                </a>
+                                <!--<small class="small d-block text-muted">
+                                  {{ d.place_type }}, {{ d.adresse.stadt }}, {{ d.adresse.bundesland }}
+                                </small>-->
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                            <span class="d-block">
+                                 <i class="fa fa-home"></i>
+                                <b class="strong-font-weight">{{ data.l.address }}:</b>
+                                <span> {{ d.adresse.street }} {{ d.adresse.hnr }}, {{ d.adresse.plz }} {{ d.adresse.stadt }}</span>
+                            </span>
+                                <span class="d-block">
+                                  <i class="fa fa-phone"></i>
+                                  <b class="strong-font-weight">{{ data.l.phone }}:</b>
+                                  <span>
+                                      <a class="text-decoration-none" href="Tel:{{ d.formatted_phone_number }}">
+                                          {{ d.formatted_phone_number }}
+                                      </a>
+                                  </span>
+                            </span>
+                            </p>
+                            <p class="card-text position-absolute" style="bottom: .15rem">
+                                <small class="text-muted">Stand: {{ d.lastUpdate }}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+

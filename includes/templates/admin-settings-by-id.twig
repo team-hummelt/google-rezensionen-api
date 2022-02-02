@@ -1,0 +1,250 @@
+<div id="target{{ d.place_id }}" class="target-edit-wrapper col-xl-8 col-lg-10 col-12 mb-3 mx-auto">
+    <div class="card shadow-sm">
+        <div class="row g-0">
+            <div class="col-lg-12 overflow-hidden">
+                <a target="_blank" href="{{ d.map_url }}">
+                    <img src="{{ d.img_url }}"
+                         class="img-google-preview-width rounded-start" title="{{ d.name }}" alt="{{ d.name }}">
+                </a>
+            </div>
+            <div class="col-lg-12">
+                <div class="card-body position-relative">
+                    <div class="fs-5 card-title d-md-flex d-block flex-wrap align-items-center">
+                                                    <span>
+                                                        <i class="text-google fa fa-google"></i>
+                                                        &nbsp;{{ d.l.google_rezensionen }}
+                                                    </span>
+                        <div class="ms-auto pt-md-0 pt-3">
+                            <div class="d-flex align-items-center">
+                                <small class="text-small text-muted d-block me-2">
+                                    {{ d.l.to_the_overview }}
+                                </small>
+                                <button data-bs-toggle="collapse" data-bs-target="#overviewTemplates"
+                                        class="btn btn-outline-light border btn-got-to-overview">
+                                    <i class="wp-color fa fa-close"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5 style="font-size: 22px">{{ d.name }}</h5>
+                    <p class="star-wrapper card-text fs-6">
+                        {{ d.user_rating }}
+                        {% autoescape false %}
+                            {{ d.stars }}
+                        {% endautoescape %}
+                        <a target="_blank" class="google-car-link text-decoration-none"
+                           href="https://www.google.com/search?q={{ d.google_url }}">
+                            {{ d.user_ratings_total }} {{ d.l.google }}-{{ d.lang_rezension }}
+                        </a>
+                        <!--<small class="small d-block text-muted">
+                            {{ d.place_type }}, {{ d.adresse.stadt }}, {{ d.adresse.bundesland }}
+                        </small>-->
+                    </p>
+                    <hr>
+                    <p class="card-text">
+                            <span class="d-block">
+                                 <i class="fa fa-home"></i>
+                                <b class="strong-font-weight">{{ d.l.address }}:</b>
+                                <span> {{ d.adresse.street }} {{ d.adresse.hnr }}, {{ d.adresse.plz }} {{ d.adresse.stadt }}</span>
+                            </span>
+                        <span class="d-block">
+                                  <i class="fa fa-phone"></i>
+                                  <b class="strong-font-weight">{{ d.l.phone }}:</b>
+                                  <span>
+                                      <a class="text-decoration-none" href="Tel:{{ d.formatted_phone_number }}">
+                                          {{ d.formatted_phone_number }}
+                                      </a>
+                                  </span>
+                            </span>
+                    </p>
+                    <p class="card-text position-absolute" style="bottom: .15rem;right:.5rem">
+                        <small class="text-muted">Stand: {{ d.lastUpdate }} </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0 mb-0 pt-0">
+        <div class="card-body bg-light pb-3 pt-3">
+            <h5 class="strong-font-weight mb-0 d-flex flex-wrap align-items-center">
+                <span class="position-relative"> {{ d.l.shortcode }}:
+                  <span class="rezension-shortcode strong-font-weight mt-0 small wp-color d-block pt-1">
+                    [google_rezension id="{{ d.place_id }}"]
+                    <i data-id='[google_rezension id="{{ d.place_id }}"]' onclick="copy_data_place_id(this, 1)"
+                     title="{{ d.l.copy }}"
+                     class="copy_release_keys wp-color cursor-pointer small fa fa-copy ms-2"></i>
+                    <sup id="info1" class="d-inline-block showInfo wp-color fw-bold">&nbsp; {{ d.l.copies }}...</sup>
+                  </span>
+              </span>
+                <button class="btn btn-outline-light border ms-auto" data-bs-toggle="collapse"
+                        data-bs-target="#shortCodeInfo">
+                    <i title="{{ d.l.example }}" class="wp-color fa fa-lightbulb-o"></i>
+                </button>
+            </h5>
+            <div class="form-text pt-2">
+                <i class="fa fa-info"></i>
+                {{ d.l.shortcode_info }}
+            </div>
+            <div class="collapse" id="shortCodeInfo">
+                <div class="form-text mt-3">
+                    <hr>
+                    <div class="d-block strong-font-weight ">
+                        {{ d.l.shortcode_example_txt }}
+                        <ul class="list-inline fw-normal pt-1 mb-0 pt-0">
+                            {% for key, val in d.template_select %}
+                                <li class="list-inline-item"><b>{{ key }}</b>
+                                    <i class="fa fa-long-arrow-right"></i> {{ val }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="mt-3">
+                            {{ d.l.shortcode_out_txt }}
+                        </div>
+                        <div class="rezension-shortcode small strong-font-weight wp-color d-block">
+                            [google_rezension id="{{ d.place_id }}" bg="#f2f2f2" template="1"]
+                            <span class="position-relative">
+                                <i data-id='[google_rezension id="{{ d.place_id }}" bg="#f2f2f2" template="1"]' onclick="copy_data_place_id(this, 2)"
+                                title="{{ d.l.copy }}" class="copy_release_keys wp-color cursor-pointer small fa fa-copy ms-2"></i>
+                                <sup id="info2" class="d-inline-block showInfo wp-color fw-bold">&nbsp; {{ d.l.copies }}...</sup>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="google-api-formular-auto-safe">
+                <input type="hidden" name="method" value="update_google_rezension">
+                <input type="hidden" name="id" value="{{ d.place_id }}">
+                <hr>
+                <h6 class="strong-font-weight d-flex align-items-center flex-wrap">
+               <span>
+                <i class="wp-color fa fa-arrow-circle-down"></i>
+                {{ d.l.individuell_settings }} <sup class="text-danger">(1)</sup>
+               </span>
+                    <span class="ajax-status-spinner ms-auto d-inline-block fw-normal my-2 pe-2"></span>
+                </h6>
+                <hr>
+                <div class="mb-3">
+                    <div class="form-check form-check-inline">
+                        <input onclick="this.blur()" class="form-check-input radio-update-option"
+                               type="radio" name="update_option"
+                               id="radioUpdateOption1"{% if d.automatic_aktiv == 1 %} checked{% endif %}
+                               value="1">
+                        <label class="form-check-label"
+                               for="radioUpdateOption1">{{ d.l.update_automatically }}</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input onclick="this.blur()" class="form-check-input radio-update-option"
+                               type="radio" name="update_option"
+                               id="radioUpdateOption2"
+                               value="2" {% if d.automatic_aktiv == 2 %} checked{% endif %}>
+                        <label class="form-check-label"
+                               for="radioUpdateOption2">{{ d.l.update_manually }}</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="updateInterval" class="form-label mb-2">
+                        {{ d.l.update_interval }}
+                    </label>
+                    <select id="updateInterval" name="update_interval"
+                            class="form-select no-blur" {% if d.automatic_aktiv == 2 %} disabled{% endif %}>
+                        {% for key, val in d.update_select %}
+                            <option value="{{ key }}"{% if d.synchronization_intervall == key %} selected{% endif %}>{{ val }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="form-text small fw-normal d-block">
+                        {% if d.automatic_aktiv == 1 %} next Update: <span
+                                class="nextUpdate">{{ d.nextUpdate }}</span> {% endif %}
+                    </div>
+                </div>
+                <button data-bs-toggle="tooltip" data-bs-placement="top" title="{{ d.l.synchronize_now }}"
+                        id="update_now_all" data-id="{{ d.place_id }}" type="button"
+                        class="btn btn-blue-outline btn-lg">
+                    <i class="fa fa-rotate-right  fa-spin slower-spin"></i><!-- {{ d.l.synchronize_review_now }}-->
+                </button>
+                <hr>
+                <h6 class="card-title">
+                    <i class="wp-color fa fa-arrow-circle-down"></i> {{ d.l.head_download_settings }}
+                </h6>
+                <hr>
+                <div class="row g-2">
+                    <div class="col-xl-6 col-12 mb-4">
+                        <label for="staticRoadMap" class="mb-2">
+                            {{ d.l.google_maps }}  {{ d.l.map_type }}
+                            <small class="small fw-normal">( {{ d.l.static_map }} )</small>
+                        </label>
+                        <select class="form-select no-blur mw-100" name="google_map_type"
+                                id="staticRoadMap">
+                            {% for key, val in d.map_typ_select %}
+                                <option value="{{ key }}"{% if d.map.map_type == key %} selected{% endif %}>{{ val }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <h6><i class="fa fa-info"></i>&nbsp; {{ d.l.card_size }}
+                    <small class="small fw-normal">( {{ d.l.static_map }} )</small>
+                </h6>
+                <div class="row g-2">
+                    <div class="col-xl-6 col-12 mb-3">
+                        <label for="InputHorizontal" class="form-label mb-2">
+                            {{ d.l.card }} {{ d.l.horizontal }} (px)
+                        </label>
+                        <input type="number" name="horizontal_size"
+                               value="{{ d.map.horizontal_size }}"
+                               class="form-control no-blur"
+                               id="InputHorizontal">
+                    </div>
+
+                    <div class="col-xl-6 col-12 mb-3">
+                        <label for="InputVertical" class="form-label mb-2">
+                            {{ d.l.card }} {{ d.l.vertical }} (px)
+                        </label>
+                        <input type="number" name="vertical_size"
+                               value="{{ d.map.vertical_size }}"
+                               class="form-control no-blur" id="InputVertical">
+                    </div>
+
+                    <div class="col-xl-6 col-12 mb-3">
+                        <label for="ImageFormat" class="form-label mb-2">
+                            {{ d.l.google_maps }} {{ d.l.image_format }}
+                            <small class="small fw-normal">( {{ d.l.static_map }} )</small>
+                        </label>
+                        <select class="form-select no-blur mw-100" name="map_image_format"
+                                id="ImageFormat">
+                            {% for key, val in d.map_img_type_select %}
+                                <option value="{{ key }}"{% if d.map.map_image_type == key %} selected{% endif %}>{{ val }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-xl-6 col-12 mb-3">
+                        <label for="InputCardZoom" class="form-label mb-2">
+                            {{ d.l.card }}  {{ d.l.zoom }}
+                        </label>
+                        <input type="number" name="static_card_zoom"
+                               value="{{ d.map.map_zoom }}"
+                               class="form-control no-blur" id="InputCardZoom">
+                    </div>
+                </div>
+                <div class="form-check mb-3 mt-2">
+                    <input onclick="this.blur()" class="form-check-input" name="map_scale_aktiv"
+                           type="checkbox"
+                           id="CheckScale2"{% if d.map.map_scale_aktiv %} checked{% endif %}>
+                    <label class="form-check-label" for="CheckScale2">
+                        {{ d.l.create_high }}
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <small class="form-text">
+                <span class="text-danger">(1)</span>
+                <span class="strong-font-weight"> {{ d.l.synchronization_settings }}  </span>
+                <p class="mb-2"> {{ d.l.synchronization_info }} </p>
+                <span class="text-danger">*</span>
+                <span class="strong-font-weight"> {{ d.l.static_map }}:  </span>
+                <p class="mb-2"> {% autoescape false %}
+                        {{ d.l.map_static_info }}
+                    {% endautoescape %} </p>
+            </small>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="google-rezension-plugin {{ d.extraClass }}">
+    <div class="google-rezension-card" style="max-width: 25rem; background-color: {{ d.bg_color }}">
+        <div class="card-body position-relative">
+            <div class="rezension-card-name">{{ d.name }}</div>
+            <p class="star-wrapper card-text card-small fs-6">
+                {{ d.user_rating }}
+                {% autoescape false %}
+                    {{ d.stars }}
+                {% endautoescape %}
+                <a target="_blank" class="google-car-link text-decoration-none"
+                   title="{{ d.name }}"
+                   href="https://www.google.com/search?q={{ d.google_url }}">
+                    {{ d.user_ratings_total }} {{ d.l.google }}-{{ d.lang_rezension }}
+                </a>
+            </p>
+            <hr>
+            <p class="card-text">
+                            <span class="d-block">
+                                 <i class="fa fa-home"></i>
+                                <b class="strong-font-weight">{{ d.l.address }}:</b>
+                                <span> {{ d.adresse.street }} {{ d.adresse.hnr }}, {{ d.adresse.plz }} {{ d.adresse.stadt }}</span>
+                            </span>
+                <span class="d-block">  <i class="fa fa-phone"></i>
+                       <b class="strong-font-weight">{{ d.l.phone }}:</b>
+                       <span>
+                           <a title="{{ d.name }}" class="text-decoration-none"
+                              href="Tel:{{ d.formatted_phone_number }}">
+                               {{ d.formatted_phone_number }}
+                           </a>
+                       </span>
+                 </span>
+            </p>
+        </div>
+    </div>
+</div>

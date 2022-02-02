@@ -1,0 +1,1104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2022-02-01 22:00+0100\n"
+"PO-Revision-Date: 2022-02-01 22:02+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_html__;esc_att;esc_attr__;"
+"esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:164
+#: admin/partials/google-rezensionen-api-admin-options-page.php:51
+msgid "Google API Key"
+msgstr "Google API-Key"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:168
+#: admin/partials/google-rezensionen-api-admin-options-page.php:62
+msgid "Google API URL"
+msgstr "Google API-URL"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:280
+#, php-format
+msgid "%s entry was found."
+msgstr "Es wurde %s Eintrag gefunden."
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:282
+#, php-format
+msgid "%s entries were found."
+msgstr "Es wurden %s Einträge gefunden."
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:585
+msgid "Review successfully deleted."
+msgstr "Rezension erfolgreich gelöscht."
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:627
+msgid "Update performed successfully!"
+msgstr "Update erfolgreich durchgeführt!"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:744
+msgid "manual"
+msgstr "manuell"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:835
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:100
+#: includes/class_google_rezensionen_shortcode.php:235
+msgid "Rezension"
+msgstr "Rezension"
+
+#: admin/ajax/class_google_rezensionen_api_admin_ajax.php:835
+#: admin/class_google_rezensionen_api_admin.php:130
+#: admin/class_google_rezensionen_api_admin.php:131
+#: admin/class_google_rezensionen_api_admin.php:170
+#: admin/class_google_rezensionen_api_admin.php:171
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:98
+#: includes/class_google_rezensionen_shortcode.php:235
+msgid "Rezensionen"
+msgstr "Rezensionen"
+
+#: admin/class_google_rezensionen_api_admin.php:114
+#: admin/partials/google-rezensionen-api-admin-options-page.php:32
+#: admin/partials/google-rezensionen-api-admin-startpage.php:51
+#: admin/partials/google-rezensionen-api-admin-startpage.php:54
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin/class_google_rezensionen_api_admin.php:140
+#: admin/class_google_rezensionen_api_admin.php:141
+#: admin/partials/google-rezensionen-api-admin-startpage.php:27
+#: admin/partials/google-rezensionen-api-admin-startpage.php:40
+#: admin/partials/google-rezensionen-api-admin-startpage.php:46
+#: admin/partials/google-rezensionen-api-admin-startpage.php:49
+msgid "Overview"
+msgstr "Übersicht"
+
+#: admin/class_google_rezensionen_api_admin.php:160
+#: admin/class_google_rezensionen_api_admin.php:161
+#: admin/partials/google-rezensionen-api-admin-extension.php:26
+#: admin/partials/google-rezensionen-api-admin-page-settings.php:31
+msgid "Extensions"
+msgstr "Erweiterungen"
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:20
+#: admin/partials/google-rezensionen-api-admin-options-page.php:24
+#: admin/partials/google-rezensionen-api-admin-page-settings.php:24
+#: admin/partials/google-rezensionen-api-admin-startpage.php:26
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:96
+msgid "Google Rezensionen"
+msgstr "Google Rezensionen"
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:26
+#: admin/partials/google-rezensionen-api-admin-page-settings.php:31
+msgid "Google Business API"
+msgstr "Google Business API"
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:28
+#: admin/partials/google-rezensionen-api-admin-page-settings.php:37
+msgid "There are currently no extensions available."
+msgstr "Es sind derzeit keine Erweiterungen verfügbar."
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:37
+msgid "Reviews"
+msgstr "Rezensionen"
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:41
+msgid ""
+"With the Google Reviews API plugin you can easily view your reviews. Don't "
+"worry about privacy, the reviews are synchronized in the background. Data of "
+"your visitors will not be transferred to Google."
+msgstr ""
+"Mit dem Plugin \"Google Rezensionen API\" können Sie sich ganz einfach Ihre "
+"Bewertungen anzeigen lassen. Machen Sie sich keine Gedanken um den "
+"Datenschutz, die Bewertungen werden im Hintergrund synchronisiert. Daten "
+"Ihrer Besucher werden nicht an Google übertragen."
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:32
+msgid "Google API"
+msgstr "Google API"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:42
+msgid "Google Business API Settings"
+msgstr "Google Business API-Einstellungen"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:73
+msgid "Privacy settings"
+msgstr "Datenschutz Einstellungen"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:79
+msgid "Google Maps privacy active"
+msgstr "Google Maps Datenschutz aktiv"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:84
+msgid "Search field Settings"
+msgstr "Benutzerdefinierte Einstellungen für die Suchseite"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:90
+msgid "Automatic completion active"
+msgstr "Automatischen Vervollständigung aktiv"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:95
+msgid "Auto-completion is not available in this plugin version."
+msgstr ""
+"Die automatische Vervollständigung ist in dieser Plugin-Version nicht "
+"verfügbar."
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:100
+msgid "Minimum requirement for using this function"
+msgstr "Mindestvoraussetzung für die Verwendung dieser Funktion"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:107
+msgid "User Role"
+msgstr "Benutzer Rolle"
+
+#: admin/partials/google-rezensionen-api-admin-options-page.php:131
+#, php-format
+msgid ""
+"The Google My Business API is an automated process that allows authorised "
+"people to manage business location data for Google Maps. Learn how to create "
+"an API key %s here</a>."
+msgstr ""
+"Die Google My Business API ist ein automatisierter Prozess, der es "
+"autorisierten Personen ermöglicht, die Standortdaten von Unternehmen für "
+"Google Maps zu verwalten. %sHier</a> erfahren Sie, wie Sie einen API-"
+"Schlüssel erstellen."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:32
+msgid "Extensions are being updated and will be available again shortly."
+msgstr ""
+"Erweiterungen werden aktualisiert und werden in Kürze wieder verfügbar sein."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:67
+#: admin/partials/google-rezensionen-api-admin-startpage.php:325
+msgid "Create a new review"
+msgstr "Neue Rezension erstellen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:87
+msgid "Create review Step"
+msgstr "Neue Rezension erstellen Schritt"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:95
+#: admin/partials/google-rezensionen-api-admin-startpage.php:151
+#: admin/partials/google-rezensionen-api-admin-startpage.php:268
+msgid "A Place ID is required to retrieve reviews."
+msgstr "Es wird eine Place ID benötigt um die Bewertungen abzurufen."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:97
+msgid ""
+"Enter the Place ID in the field and click Submit. Or, click Search Place ID "
+"to search for the place ID."
+msgstr ""
+"Geben Sie die Place-ID in das Feld ein und klicken Sie auf Senden. Oder "
+"klicken Sie auf Place-ID suchen, um nach der Place-ID zu suchen."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:104
+#: admin/partials/google-rezensionen-api-admin-startpage.php:105
+msgid "Enter Place ID"
+msgstr "Place ID eingeben"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:108
+msgid "Send"
+msgstr "Senden"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:113
+msgid "If you do not know the Place ID, click Search Place ID."
+msgstr "Wenn Sie die Place-ID nicht kennen, klicken Sie auf Place ID suchen."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:119
+msgid "Place ID search"
+msgstr "Place ID suchen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:123
+#: admin/partials/google-rezensionen-api-admin-startpage.php:241
+#: admin/partials/google-rezensionen-api-admin-startpage.php:329
+#: admin/partials/google-rezensionen-api-admin-startpage.php:541
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:138
+#: admin/partials/google-rezensionen-api-admin-startpage.php:255
+msgid "Place ID"
+msgstr "Place ID"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:138
+#: admin/partials/google-rezensionen-api-admin-startpage.php:255
+msgid " search"
+msgstr "suchen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:153
+msgid ""
+"<b class=\"strong-font-weight\">How it works:</b> Simply enter an address, "
+"place, point of interest or business in the search box. Press Enter or the "
+"button and the plugin should find and display the entry."
+msgstr ""
+"<b>So funktioniert’s:</b> Geben Sie einfach eine Adresse, einen Ort, eine "
+"Sehenswürdigkeit oder ein Geschäft in das Suchfeld ein. Drücken Sie Enter "
+"oder auf den Button und das Plugin sollte den Eintrag finden und anzeigen."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:163
+msgid "In which country would you like to search"
+msgstr "In welchen Land möchten Sie suchen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:171
+msgid "Type to search"
+msgstr "Eingabe für die Suche"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:189
+#: admin/partials/google-rezensionen-api-admin-startpage.php:215
+msgid "Select"
+msgstr "auswählen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:199
+msgid "Google Search: Enter company, name or address"
+msgstr "Google Suche: Geben Sie Firma, Name oder Adresse ein"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:210
+#: admin/partials/google-rezensionen-api-admin-startpage.php:225
+msgid "Enter an address, shop or place of interest"
+msgstr "Adresse, Geschäft oder Sehenswürdigkeit eingeben"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:229
+msgid "Search"
+msgstr "Suchen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:270
+msgid ""
+"<b class=\"strong-font-weight\">How it works:</b> Simply enter an address, "
+"place, attraction or business in the search box and press enter or the "
+"button and the tool should output the Place ID."
+msgstr ""
+"<b>So funktioniert’s:</b> Geben Sie einfach eine Adresse, einen Ort, eine "
+"Sehenswürdigkeit oder ein Geschäft in das Suchfeld ein und drücken Sie Enter "
+"oder auf den Button und das Tool sollte  die Place ID ausgeben."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:288
+#: admin/partials/google-rezensionen-api-admin-startpage.php:373
+#: admin/partials/google-rezensionen-api-admin-startpage.php:417
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:127
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:298
+msgid "This plugin uses the Google Maps service."
+msgstr "Dieses Plugin nutzt den Kartendienst Google Maps."
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:300
+msgid "The provider is"
+msgstr "Anbieter ist die"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:312
+msgid "I accept the privacy "
+msgstr "Ich akzeptiere die "
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:316
+msgid "policy"
+msgstr "Datenschutzbestimmungen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:338
+msgid "no longer show"
+msgstr "nicht mehr anzeigen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:355
+msgid "Google Review API Synchronisation Settings"
+msgstr "Google Rezension API Synchronisation Einstellungen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:356
+#: admin/partials/google-rezensionen-api-admin-startpage.php:374
+#: admin/partials/google-rezensionen-api-admin-startpage.php:390
+#: admin/partials/google-rezensionen-api-admin-startpage.php:418
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:129
+msgid "Static Map"
+msgstr "Static Map"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:365
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:118
+msgid "Images and Maps Download Settings"
+msgstr "Bilder und Karten Download Einstellungen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:373
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:128
+msgid "Map type"
+msgstr "Kartentyp"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:389
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:130
+msgid "Card size"
+msgstr "Kartengröße"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:396
+#: admin/partials/google-rezensionen-api-admin-startpage.php:407
+#: admin/partials/google-rezensionen-api-admin-startpage.php:435
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:131
+msgid "Card"
+msgstr "Karte"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:396
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:132
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:407
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:133
+msgid "Vertical"
+msgstr "Vertical"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:417
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:134
+msgid "Image format"
+msgstr "Bildformat"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:435
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:135
+msgid "Zoom"
+msgstr "Zoom"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:447
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:136
+msgid "Create high resolution image"
+msgstr "Hochauflösendes Bild erstellen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:480
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:119
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:494
+msgid "Show review"
+msgstr "Rezension anzeigen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:500
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:107
+msgid "API synchronization settings"
+msgstr "API Synchronisation Einstellungen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:501
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:108
+msgid "Updates"
+msgstr "Updates"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:515
+msgid "Close"
+msgstr "Schließen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:529
+msgid "Goggle Rezension"
+msgstr "Google Rezension"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:529
+msgid "delete"
+msgstr "löschen"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:535
+msgid "Really delete review?"
+msgstr "Rezension wirklich löschen?"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:536
+msgid ""
+"This action can <b class=\"text-danger\">not</b> be undone</b>! be undone!"
+msgstr ""
+"Diese Aktion kann <b class=\"text-danger\">nicht</b> rückgängig gemacht "
+"werden!"
+
+#: admin/partials/google-rezensionen-api-admin-startpage.php:545
+msgid "Delete"
+msgstr "Löschen"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:73
+msgid "<b class=\"strong-font-weight\">Ajax error:</b> No data was received."
+msgstr ""
+"<b class=\"strong-font-weight\">Ajax error:</b> Es wurden keine Daten "
+"empfangen."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:75
+#, php-format
+msgid "The field <i>%s</i> must not be empty."
+msgstr "Das Feld <i>%s</i> darf nicht leer sein."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:77
+#, php-format
+msgid "To be able to use the plugin, the field <b>%s</b> must not be empty."
+msgstr ""
+"Um das Plugin nutzen zu können, darf das Feld <b>%s</b> nicht leer sein."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:78
+msgid "You must <b class=\"strong-font-weight\">accept</b> the privacy policy"
+msgstr ""
+"Sie müssen die <b class=\"strong-font-weight\">Datenschutzbestimmungen</b> "
+"akzeptieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:80
+msgid "The input field must <b class=\"strong-font-weight\">not be empty!</b>"
+msgstr ""
+"Das Eingabefeld darf <b class=\"strong-font-weight\">nicht leer sein!</b>"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:81
+msgid ""
+"There is already <b class=\"strong-font-weight\">an entry</b> with this ID!"
+msgstr ""
+"Es gibt schon <b class=\"strong-font-weight\">einen Eintrag</a> mit dieser "
+"ID!"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:83
+msgid "There is nothing to update!"
+msgstr "Es gibt nichts zu aktualisieren!"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:87
+msgid "Google entry"
+msgstr "Google-Eintrag"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:89
+msgid "Select entry"
+msgstr "Eintrag auswählen"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:91
+msgid "copies"
+msgstr "kopiert"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:92
+msgid "copy"
+msgstr "kopieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:94
+msgid "Place-ID"
+msgstr "Place ID"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:101
+msgid "Google"
+msgstr "Google"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:102
+msgid "Address"
+msgstr "Adresse"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:103
+msgid "Phone"
+msgstr "Telefon"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:104
+msgid "Stand"
+msgstr "Stand"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:105
+msgid "close"
+msgstr "Schließen"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:109
+msgid "Update automatically"
+msgstr "Automatisch aktualisieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:110
+msgid "Update manually"
+msgstr "Manuell aktualisieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:111
+msgid "Update Interval"
+msgstr "Aktualisierungs-Intervall"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:112
+msgid "Update now"
+msgstr "Jetzt aktualisieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:113
+msgid ""
+"The data from the Google Business API is not retrieved with every page view "
+"but is cached in a database. With the API synchronization settings, you can "
+"specify how often the data is updated."
+msgstr ""
+"Die Daten von der Google-Business API werden nicht bei jedem Seitenaufruf "
+"abgerufen sondern in einer Datenbank zwischengespeichert.  Mit den API "
+"Synchronisation Einstellungen, können Sie festlegen wie oft die Daten "
+"aktualisiert werden."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:114
+msgid ""
+"The Maps Static API returns an image of the requested map. A Maps Static API "
+"image is embedded in the src attribute of a tag."
+msgstr ""
+"Das Maps Static API gibt ein Bild der angeforderten Karte zurück. Ein Maps "
+"Static API-Bild wird in das Attribut <b>src</b> eines Tags eingebettet."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:115
+msgid "Custom API synchronization settings"
+msgstr "Individuelle API Synchronisation Einstellungen"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:117
+msgid "Synchronize review now"
+msgstr "Rezension jetzt synchronisieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:121
+msgid ""
+"Additionally, the background color and template ID can be passed to the "
+"shortcode."
+msgstr ""
+"Zusätzlich kann die Hintergrundfarbe und die Template-ID an den Shortcode "
+"übergeben werden."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:123
+msgid "The following templates can be selected:"
+msgstr "Folgende Templates können ausgewählt werden:"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:125
+msgid "Shortcode with template ID and changed background color."
+msgstr "Shortcode mit Template-ID und geänderter Hintergrundfarbe"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:126
+msgid "Example"
+msgstr "Beispiel"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:137
+msgid "Synchronize now"
+msgstr "Jetzt synchronisieren"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:138
+msgid "to the overview"
+msgstr "zur Übersicht"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:139
+msgid "API-KEY not found"
+msgstr "API-KEY nicht gefunden"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:140
+#, php-format
+msgid ""
+"To be able to create reviews, you need an  <b class=\"strong-font-weight"
+"\">API KEY</b>. You can enter your API KEY under <a class=\"strong-font-"
+"weight\" href=\"%s\">Settings Reviews</a>.  You can find out how to create "
+"an API KEY <a target=\"_blank\" class=\"fw-normal\"\n"
+"                                              href=\"https://developers."
+"google.com/my-business/content/basic-setup\">here</a>."
+msgstr ""
+"Um Rezensionen erstellen zu können benötigen Sie einen <b class=\"strong-"
+"font-weight\">API-KEY.</b> Ihren API-KEY können Sie unter <a class=\"alert-"
+"link strong-font-weight\" href=\"%s\">Einstellungen Rezensionen</a> "
+"eingeben. Wie Sie einen API KEY erstellen erfahren Sie <a target=\"_blank\" "
+"class=\"alert-link fw-normal\" href=\"https://developers.google.com/my-"
+"business/content/basic-setup\">hier</a>."
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:142
+msgid ""
+"You will need the My Business API to output reviews.<br> The Google My "
+"Business API is an automated process that allows authorized individuals to "
+"manage location data for Google Maps."
+msgstr ""
+"Sie benötigen für die Ausgabe von Rezensionen die My Business API.<br> Die "
+"Google My Business API ist ein automatisierter Prozess, der es autorisierten "
+"Personen ermöglicht, Standortdaten für Google Maps zu verwalten."
+
+#: includes/class_google_rezensionen_api.php:299
+#, php-format
+msgid ""
+"This plugin has been disabled because it requires a PHP version greater than "
+"%s and a WordPress version greater than %s. Your PHP version can be updated "
+"by your hosting provider."
+msgstr ""
+"Dieses Plugin wurde deaktiviert, weil es eine PHP-Version größer als %s und "
+"eine WordPress-Version größer als %s benötigt. Ihre PHP-Version kann von "
+"Ihrem Hosting-Anbieter aktualisiert werden."
+
+#: includes/class_google_rezensionen_api_helper.php:273
+msgid "Subscriber"
+msgstr "Abonnent"
+
+#: includes/class_google_rezensionen_api_helper.php:274
+msgid "Contributor"
+msgstr "Mitarbeiter"
+
+#: includes/class_google_rezensionen_api_helper.php:275
+msgid "Author"
+msgstr "Autor"
+
+#: includes/class_google_rezensionen_api_helper.php:276
+msgid "Editor"
+msgstr "Redakteur"
+
+#: includes/class_google_rezensionen_api_helper.php:277
+msgid "Administrator"
+msgstr "Administrator"
+
+#: includes/class_google_rezensionen_api_helper.php:280
+msgid "Roadmap"
+msgstr "Roadmap"
+
+#: includes/class_google_rezensionen_api_helper.php:281
+msgid "Satellite"
+msgstr "Satellite"
+
+#: includes/class_google_rezensionen_api_helper.php:282
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: includes/class_google_rezensionen_api_helper.php:283
+msgid "Terrain"
+msgstr "Terrain"
+
+#: includes/class_google_rezensionen_api_helper.php:293
+msgid "daily"
+msgstr "täglich"
+
+#: includes/class_google_rezensionen_api_helper.php:294
+msgid "weekly"
+msgstr "wöchentlich"
+
+#: includes/class_google_rezensionen_api_helper.php:295
+msgid "monthly"
+msgstr "monatlich"
+
+#: includes/class_google_rezensionen_api_helper.php:298
+msgid "big"
+msgstr "groß"
+
+#: includes/class_google_rezensionen_api_helper.php:299
+msgid "medium"
+msgstr "mittel"
+
+#: includes/class_google_rezensionen_api_helper.php:300
+msgid "small"
+msgstr "klein"
+
+#: includes/class_google_rezensionen_api_helper.php:316
+msgid "accounting"
+msgstr "Buchhaltung"
+
+#: includes/class_google_rezensionen_api_helper.php:318
+msgid "airport"
+msgstr "Flughafen"
+
+#: includes/class_google_rezensionen_api_helper.php:320
+msgid "amusement park"
+msgstr "Vergnügungspark"
+
+#: includes/class_google_rezensionen_api_helper.php:322
+msgid "aquarium"
+msgstr "Aquarium"
+
+#: includes/class_google_rezensionen_api_helper.php:324
+msgid "art gallery"
+msgstr "Kunstgalerie"
+
+#: includes/class_google_rezensionen_api_helper.php:326
+msgid "atm"
+msgstr "Geldautomat"
+
+#: includes/class_google_rezensionen_api_helper.php:328
+msgid "bakery"
+msgstr "Bäckerei"
+
+#: includes/class_google_rezensionen_api_helper.php:330
+msgid "bank"
+msgstr "Bank"
+
+#: includes/class_google_rezensionen_api_helper.php:332
+msgid "bar"
+msgstr "Bar"
+
+#: includes/class_google_rezensionen_api_helper.php:334
+msgid "beauty salon"
+msgstr "Schönheitssalon"
+
+#: includes/class_google_rezensionen_api_helper.php:336
+msgid "bicycle store"
+msgstr "Fahrradgeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:338
+msgid "book store"
+msgstr "Buchhandlung"
+
+#: includes/class_google_rezensionen_api_helper.php:340
+msgid "bowling alley"
+msgstr "Bowlingbahn"
+
+#: includes/class_google_rezensionen_api_helper.php:342
+msgid "bus station"
+msgstr "Busbahnhof"
+
+#: includes/class_google_rezensionen_api_helper.php:344
+msgid "cafe"
+msgstr "Cafe"
+
+#: includes/class_google_rezensionen_api_helper.php:346
+msgid "campground"
+msgstr "Zeltplatz"
+
+#: includes/class_google_rezensionen_api_helper.php:348
+msgid "car dealer"
+msgstr "Autohändler"
+
+#: includes/class_google_rezensionen_api_helper.php:350
+msgid "car rental"
+msgstr "Autovermietung"
+
+#: includes/class_google_rezensionen_api_helper.php:352
+msgid "car repair"
+msgstr "Autoreparatur"
+
+#: includes/class_google_rezensionen_api_helper.php:354
+msgid "car wash"
+msgstr "Autowaschanlage"
+
+#: includes/class_google_rezensionen_api_helper.php:356
+msgid "casino"
+msgstr "Casino"
+
+#: includes/class_google_rezensionen_api_helper.php:358
+msgid "cemetery"
+msgstr "Friedhof"
+
+#: includes/class_google_rezensionen_api_helper.php:360
+msgid "church"
+msgstr "Kirche"
+
+#: includes/class_google_rezensionen_api_helper.php:362
+msgid "city hall"
+msgstr "Stadthalle"
+
+#: includes/class_google_rezensionen_api_helper.php:364
+msgid "clothing store"
+msgstr "Lebensmittelgeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:366
+msgid "convenience store"
+msgstr "Gerichtsgebäude"
+
+#: includes/class_google_rezensionen_api_helper.php:368
+msgid "courthouse"
+msgstr "Gerichtsgebäude"
+
+#: includes/class_google_rezensionen_api_helper.php:370
+msgid "dentist"
+msgstr "Zahnarzt"
+
+#: includes/class_google_rezensionen_api_helper.php:372
+msgid "department store"
+msgstr "Kaufhaus"
+
+#: includes/class_google_rezensionen_api_helper.php:374
+msgid "doctor"
+msgstr "Doktor"
+
+#: includes/class_google_rezensionen_api_helper.php:376
+msgid "drugstore"
+msgstr "Drogeriemarkt"
+
+#: includes/class_google_rezensionen_api_helper.php:378
+msgid "electrician"
+msgstr "Elektriker"
+
+#: includes/class_google_rezensionen_api_helper.php:380
+msgid "electronics store"
+msgstr "Elektrofachmarkt"
+
+#: includes/class_google_rezensionen_api_helper.php:382
+msgid "embassy"
+msgstr "Botschaft"
+
+#: includes/class_google_rezensionen_api_helper.php:384
+msgid "fire station"
+msgstr "Feuerwache"
+
+#: includes/class_google_rezensionen_api_helper.php:386
+msgid "florist"
+msgstr "Florist"
+
+#: includes/class_google_rezensionen_api_helper.php:388
+msgid "funeral home"
+msgstr "Bestattungsinstitut"
+
+#: includes/class_google_rezensionen_api_helper.php:390
+msgid "furniture store"
+msgstr "Möbelhaus"
+
+#: includes/class_google_rezensionen_api_helper.php:392
+msgid "gas station"
+msgstr "Tankstelle"
+
+#: includes/class_google_rezensionen_api_helper.php:394
+msgid "gym"
+msgstr "Fitnessstudio"
+
+#: includes/class_google_rezensionen_api_helper.php:396
+msgid "hair care"
+msgstr "Haarpflege"
+
+#: includes/class_google_rezensionen_api_helper.php:398
+msgid "hardware store"
+msgstr "Baumarkt"
+
+#: includes/class_google_rezensionen_api_helper.php:400
+msgid "hindu temple"
+msgstr "Hindu-Tempel"
+
+#: includes/class_google_rezensionen_api_helper.php:402
+msgid "home goods store"
+msgstr "Haushaltswarengeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:404
+msgid "hospital"
+msgstr "Krankenhaus"
+
+#: includes/class_google_rezensionen_api_helper.php:406
+msgid "insurance agency"
+msgstr "Versicherungsagentur"
+
+#: includes/class_google_rezensionen_api_helper.php:408
+msgid "jewelry store"
+msgstr "Juweliergeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:410
+msgid "laundry"
+msgstr "Wäscherei"
+
+#: includes/class_google_rezensionen_api_helper.php:412
+msgid "lawyer"
+msgstr "Rechtsanwalt"
+
+#: includes/class_google_rezensionen_api_helper.php:414
+msgid "library"
+msgstr "Bibliothek"
+
+#: includes/class_google_rezensionen_api_helper.php:416
+msgid "light rail station"
+msgstr "Stadtbahnstation"
+
+#: includes/class_google_rezensionen_api_helper.php:418
+msgid "liquor store"
+msgstr "Spirituosengeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:420
+msgid "local government office"
+msgstr "lokale Regierungsstelle"
+
+#: includes/class_google_rezensionen_api_helper.php:422
+msgid "locksmith"
+msgstr "Schlüsseldienst"
+
+#: includes/class_google_rezensionen_api_helper.php:424
+msgid "lodging"
+msgstr "Unterbringung"
+
+#: includes/class_google_rezensionen_api_helper.php:426
+msgid "meal delivery"
+msgstr "Essenslieferung"
+
+#: includes/class_google_rezensionen_api_helper.php:428
+msgid "meal takeaway"
+msgstr "Essen zum Mitnehmen"
+
+#: includes/class_google_rezensionen_api_helper.php:430
+msgid "mosque"
+msgstr "Moschee"
+
+#: includes/class_google_rezensionen_api_helper.php:432
+msgid "movie rental"
+msgstr "Filmverleih"
+
+#: includes/class_google_rezensionen_api_helper.php:434
+msgid "movie theater"
+msgstr "Kino"
+
+#: includes/class_google_rezensionen_api_helper.php:436
+msgid "moving company"
+msgstr "Umzugsunternehmen"
+
+#: includes/class_google_rezensionen_api_helper.php:438
+msgid "museum"
+msgstr "Museum"
+
+#: includes/class_google_rezensionen_api_helper.php:440
+msgid "night club"
+msgstr "Nachtclub"
+
+#: includes/class_google_rezensionen_api_helper.php:442
+msgid "painter"
+msgstr "Maler"
+
+#: includes/class_google_rezensionen_api_helper.php:444
+msgid "Park"
+msgstr "Park"
+
+#: includes/class_google_rezensionen_api_helper.php:446
+msgid "parking"
+msgstr "Parkplatz"
+
+#: includes/class_google_rezensionen_api_helper.php:448
+msgid "pet store"
+msgstr "Zoohandlung"
+
+#: includes/class_google_rezensionen_api_helper.php:450
+msgid "pharmacy"
+msgstr "Apotheke"
+
+#: includes/class_google_rezensionen_api_helper.php:452
+msgid "physiotherapist"
+msgstr "Physio-Therapeut"
+
+#: includes/class_google_rezensionen_api_helper.php:454
+msgid "plumber"
+msgstr "Klempner"
+
+#: includes/class_google_rezensionen_api_helper.php:456
+msgid "police"
+msgstr "Polizei"
+
+#: includes/class_google_rezensionen_api_helper.php:458
+msgid "post office"
+msgstr "Postamt"
+
+#: includes/class_google_rezensionen_api_helper.php:460
+msgid "primary school"
+msgstr "Grundschule"
+
+#: includes/class_google_rezensionen_api_helper.php:462
+msgid "real estate agency"
+msgstr "Immobilienmakler"
+
+#: includes/class_google_rezensionen_api_helper.php:464
+msgid "restaurant"
+msgstr "Restaurant"
+
+#: includes/class_google_rezensionen_api_helper.php:466
+msgid "roofing contractor"
+msgstr "Dachdeckerbetrieb"
+
+#: includes/class_google_rezensionen_api_helper.php:468
+msgid "rv park"
+msgstr "Wohnmobilstellplatz"
+
+#: includes/class_google_rezensionen_api_helper.php:470
+msgid "school"
+msgstr "Schule"
+
+#: includes/class_google_rezensionen_api_helper.php:472
+msgid "secondary school"
+msgstr "Sekundarschule"
+
+#: includes/class_google_rezensionen_api_helper.php:474
+msgid "shoe store"
+msgstr "Schuhgeschäft"
+
+#: includes/class_google_rezensionen_api_helper.php:476
+msgid "shopping mall"
+msgstr "Einkaufspassage"
+
+#: includes/class_google_rezensionen_api_helper.php:478
+msgid "spa"
+msgstr "Heilbad"
+
+#: includes/class_google_rezensionen_api_helper.php:480
+msgid "stadium"
+msgstr "Stadion"
+
+#: includes/class_google_rezensionen_api_helper.php:482
+msgid "storage"
+msgstr "Lagerung"
+
+#: includes/class_google_rezensionen_api_helper.php:484
+msgid "store"
+msgstr "Shop"
+
+#: includes/class_google_rezensionen_api_helper.php:486
+msgid "subway station"
+msgstr "U-Bahn-Station"
+
+#: includes/class_google_rezensionen_api_helper.php:488
+msgid "supermarket"
+msgstr "Supermarkt"
+
+#: includes/class_google_rezensionen_api_helper.php:490
+msgid "synagogue"
+msgstr "Synagoge"
+
+#: includes/class_google_rezensionen_api_helper.php:492
+msgid "taxi stand"
+msgstr "Taxistand"
+
+#: includes/class_google_rezensionen_api_helper.php:494
+msgid "tourist attraction"
+msgstr "Touristenattraktion"
+
+#: includes/class_google_rezensionen_api_helper.php:496
+msgid "train station"
+msgstr "Bahnhof"
+
+#: includes/class_google_rezensionen_api_helper.php:498
+msgid "transit station"
+msgstr "Bahnhof"
+
+#: includes/class_google_rezensionen_api_helper.php:500
+msgid "travel agency"
+msgstr "Reisebüro"
+
+#: includes/class_google_rezensionen_api_helper.php:502
+msgid "university"
+msgstr "Universität"
+
+#: includes/class_google_rezensionen_api_helper.php:504
+msgid "veterinary care"
+msgstr "tierärztliche Betreuung"
+
+#: includes/class_google_rezensionen_api_helper.php:506
+msgid "zoo"
+msgstr "Zoo"
+
+#: includes/database/class_google_rezensionen_api_database.php:90
+msgid "Upload directory could not be created."
+msgstr "Upload directory could not be created."
+
+#: includes/database/class_google_rezensionen_api_database.php:330
+msgid "Data could not be saved!"
+msgstr "Daten konnten nicht gespeichert werden!"
+
+#: includes/database/class_google_rezensionen_api_database.php:336
+msgid "Data saved!"
+msgstr "Daten erfolgreich gespeichert!"
+
+#~ msgid ""
+#~ "<b class=\"strong-font-weight\">How it works:</b> Just enter an address, "
+#~ "place, landmark or business in the search box and hit enter or the button "
+#~ "and the plugin should create the review."
+#~ msgstr ""
+#~ "<b>So funktioniert’s:</b> Geben Sie einfach eine Adresse, einen Ort, eine "
+#~ "Sehenswürdigkeit oder ein Geschäft in das Suchfeld ein und drücken Sie "
+#~ "Enter oder auf den Button und das Plugin sollte die Rezension erstellen."
+
+#, php-format
+#~ msgid ""
+#~ "To be able to create reviews, you need an  <b class=\"strong-font-weight"
+#~ "\">API KEY</b>. You can enter your API KEY under <a class=\"alert-link "
+#~ "strong-font-weight\" href=\"%s\">Settings Reviews</a>.  You can find out "
+#~ "how to create an API KEY <a target=\"_blank\" class=\"alert-link fw-normal"
+#~ "\"\n"
+#~ "                                              href=\"https://developers."
+#~ "google.com/my-business/content/basic-setup\">here</a>."
+#~ msgstr ""
+#~ "Um Rezensionen erstellen zu können benötigen Sie einen <b class=\"strong-"
+#~ "font-weight\">API-KEY</b> Ihren API-KEY können Sie unter <a class=\"alert-"
+#~ "link strong-font-weight\" href=\"%s\">Einstellungen Rezensionen</a> "
+#~ "eingeben. Wie Sie einen API KEY erstellen erfahren Sie <a target=\"_blank"
+#~ "\" class=\"alert-link fw-normal\" href=\"https://developers.google.com/my-"
+#~ "business/content/basic-setup\">hier</a>."
+
+#~ msgid ""
+#~ "To use this plugin, the following APIs and services must be activated:"
+#~ msgstr ""
+#~ "Um dieses Plugin nutzen zu können, müssen folgende APIs und Dienste "
+#~ "aktiviert sein:"
+
+#~ msgid ""
+#~ "With this plugin version you can create <b class=\"strong-font-weight"
+#~ "\">maximum 1 review</b>."
+#~ msgstr ""
+#~ "Mit dieser Plugin-Version können Sie <b class=\"strong-font-weight"
+#~ "\">maximal 1 Bewertung</b> erstellen."
+
+#~ msgid "Options"
+#~ msgstr "Optionen"
+
+#~ msgid "Next Step"
+#~ msgstr "nächster Schritt"

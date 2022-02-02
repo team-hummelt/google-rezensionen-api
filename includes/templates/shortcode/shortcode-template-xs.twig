@@ -1,0 +1,12 @@
+<div class="google-rezension-plugin template-xs {{ d.extraClass }}">
+    <p class="star-wrapper" style="background-color: {{ d.bg_color }}">
+        {{ d.user_rating }}
+        {% autoescape false %}
+            {{ d.stars }}
+        {% endautoescape %}
+        <a target="_blank" class="google-car-link text-decoration-none"
+           title="{{ d.name }}"
+           href="https://www.google.com/search?q={{ d.google_url }}">
+            {{ d.user_ratings_total }} {{ d.l.google }}-{{ d.lang_rezension }}
+        </a>
+</div>

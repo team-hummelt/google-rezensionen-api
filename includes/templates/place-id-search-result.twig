@@ -1,0 +1,37 @@
+<h6 class="strong-font-weight ">
+    <i class="wp-color fa fa-long-arrow-right"></i>&nbsp; {{ data.lang_google_found }}
+</h6>
+<hr>
+{% for d in data.record %}
+    {% set counter = ( counter | default(0) ) + 1 %}
+    <div class="card mb-3 shadow-sm">
+        <h5 class="card-header d-flex align-items-center">
+            <span class="result-count wp-color" style="min-width: 1.7rem">
+                {{ counter }}.
+            </span>
+            <span> {{ data.lang.google_entry }}  </span>
+            <small class="small ms-auto fw-normal position-relative">
+                    <span class="strong-font-weight wp-color">
+                    {{ data.lang.place_id }}:</span> {{ d.place_id }}&nbsp;
+                <i data-id="{{ d.place_id }}" onclick="copy_data_place_id(this, {{ counter }})"
+                   title="{{ data.lang.copy }}"
+                   class="copy_release_keys wp-color cursor-pointer fa fa-copy"></i>
+                <sup id="info{{ counter }}"
+                     class="d-inline-block position-absolute showInfo wp-color fw-bold">&nbsp; {{ data.lang.copies }}
+                    ...</sup>
+            </small>
+        </h5>
+        <div class="card-body">
+            <form class="set-new-rezension">
+                <input type="hidden" name="method" value="set_new_rezension">
+                <input type="hidden" name="place_id" value="{{ d.place_id }}">
+                <h5 class="card-title">{{ d.name }}</h5>
+                <p class="card-text fs-6">{{ d.formatted_address }}</p>
+                <button type="submit" class="btn btn-blue-outline btn-sm">
+                    <i class="fa fa-share-square-o"></i>&nbsp;
+                    {{ data.lang.select_entry }}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endfor %}
