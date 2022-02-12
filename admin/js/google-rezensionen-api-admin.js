@@ -569,6 +569,8 @@
             admin_xhr_extension_form_data(formData, false, get_rezension_modal_data_callback);
         });
     }
+
+
     function get_rezension_modal_data_callback() {
         let data = JSON.parse(this.responseText);
         if (data.status) {

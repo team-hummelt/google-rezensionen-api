@@ -146,7 +146,7 @@ class Google_Rezensionen_Api_Admin {
 
 		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );
 
-		$hook_suffix = add_submenu_page(
+		/*$hook_suffix = add_submenu_page(
 			'google-rezensionen-api',
 			__( 'Help', 'google-rezensionen-api' ),
 			__( 'Help', 'google-rezensionen-api' ),
@@ -154,7 +154,7 @@ class Google_Rezensionen_Api_Admin {
 			'google-rezensionen-help',
 			array( $this, 'api_rezensionen_help_page' ) );
 
-		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );
+		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );*/
 
 		$hook_suffix = add_submenu_page(
 			'google-rezensionen-api',
