@@ -1,9 +1,6 @@
 (function ($) {
     'use strict';
 
-
-
-
     /**====================================================
      ================  ADMIN XHR FORMULARE ================
      ======================================================
@@ -559,18 +556,19 @@
     }
 
     let rezensionInfoModal = document.getElementById('rezensionInfoModal');
-    rezensionInfoModal.addEventListener('show.bs.modal', function (event) {
-        let button = event.relatedTarget
-        let place_id = button.getAttribute('data-bs-id');
-        let target = button.getAttribute('data-bs-target');
-        let formData = {
-            'method': 'get_rezension_modal_data',
-            'place_id': place_id,
-            'target': target
-        }
-        admin_xhr_extension_form_data(formData, false, get_rezension_modal_data_callback);
-    });
-
+    if(rezensionInfoModal) {
+        rezensionInfoModal.addEventListener('show.bs.modal', function (event) {
+            let button = event.relatedTarget
+            let place_id = button.getAttribute('data-bs-id');
+            let target = button.getAttribute('data-bs-target');
+            let formData = {
+                'method': 'get_rezension_modal_data',
+                'place_id': place_id,
+                'target': target
+            }
+            admin_xhr_extension_form_data(formData, false, get_rezension_modal_data_callback);
+        });
+    }
     function get_rezension_modal_data_callback() {
         let data = JSON.parse(this.responseText);
         if (data.status) {
@@ -592,16 +590,18 @@
     }
 
     let rezensionDeleteModal = document.getElementById('rezensionDeleteModal');
-    rezensionDeleteModal.addEventListener('show.bs.modal', function (event) {
-        let button = event.relatedTarget
-        let place_id = button.getAttribute('data-bs-id');
-        let method = button.getAttribute('data-bs-method');
+    if(rezensionDeleteModal) {
+        rezensionDeleteModal.addEventListener('show.bs.modal', function (event) {
+            let button = event.relatedTarget
+            let place_id = button.getAttribute('data-bs-id');
+            let method = button.getAttribute('data-bs-method');
 
-        let modalButton = rezensionDeleteModal.querySelector('.btn_delete_rezension');
-        modalButton.setAttribute('data-method', method);
-        modalButton.setAttribute('data-id', place_id);
+            let modalButton = rezensionDeleteModal.querySelector('.btn_delete_rezension');
+            modalButton.setAttribute('data-method', method);
+            modalButton.setAttribute('data-id', place_id);
 
-    });
+        });
+    }
 
     function load_tooltip_by_selector(selector) {
         let customTooltip = document.querySelector(selector);

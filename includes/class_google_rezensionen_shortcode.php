@@ -114,6 +114,7 @@ class Google_Rezensionen_Shortcode {
 		ob_start();
 		$args   = sprintf( 'WHERE place_id="%s"', $a['id'] );
 		$dbData = apply_filters( $this->basename . '/get_api_rezension', $args, false );
+
 		if(!$dbData->status){
 			return '';
 		}
@@ -124,7 +125,7 @@ class Google_Rezensionen_Shortcode {
 		$lang = $this->get_theme_default_settings( 'ajax_msg' );
 		$edit = $this->make_shortcode_rezension_data($dbData);
 		$dbData->stars          = $edit->stars;
-		$dbData->place_type     = $edit->place_type;
+		//$dbData->place_type     = $edit->place_type;
 		$dbData->adresse        = $edit->adresse;
 		$dbData->img_url        = $edit->img_url;
 		$dbData->user_rating    = $edit->user_rating;
@@ -165,8 +166,10 @@ class Google_Rezensionen_Shortcode {
 				' '
 			), str_replace( array( "\n", "\r", "\t" ), '', $template ) );
 		} catch ( LoaderError | SyntaxError | RuntimeError | Throwable $e ) {
+            var_dump($e->getMessage());
 			return '';
 		}
+
 		echo $template;
 		return ob_get_clean();
 	}
@@ -226,7 +229,7 @@ class Google_Rezensionen_Shortcode {
 
 		if ( $data->types ) {
 			$types      = json_decode( $data->types );
-			$place_type = apply_filters( $this->basename . '/api_types', $types[0] );
+			//$place_type = apply_filters( $this->basename . '/api_types', $types[0] );
 		} else {
 			$place_type = '';
 		}
@@ -248,7 +251,7 @@ class Google_Rezensionen_Shortcode {
 
 		$data->user_ratings_total == 1 ? $response->lang_rezension = __( 'Rezension', 'google-rezensionen-api' ) : $response->lang_rezension = __( 'Rezensionen', 'google-rezensionen-api' );
 		$response->stars       = $star;
-		$response->place_type  = $place_type;
+		//$response->place_type  = $place_type;
 		$response->adresse     = $adresse;
 		$response->img_url     = GOOGLE_REZENSIONEN_API_UPLOAD_URL . $data->map_image;
 		$response->user_rating = number_format( $data->user_rating, 1, ',', '' );

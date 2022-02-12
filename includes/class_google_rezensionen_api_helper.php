@@ -513,7 +513,7 @@ class Google_Rezensionen_Api_Helper {
 		];
 
 		if($type){
-			return $types[$type];
+            return $types[$type];
 		}
 		return $types;
 	}

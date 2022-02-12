@@ -1,6 +1,4 @@
 MIT License
-
-Copyright (c) 2021 Hummelt & Partner
 Copyright (c) 2021 Jens Wiecker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
