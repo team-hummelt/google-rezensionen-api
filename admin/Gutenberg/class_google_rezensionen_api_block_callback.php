@@ -62,7 +62,8 @@ class Google_Rezensionen_Api_Block_Callback {
 		$this->version  = $version;
 	}
 
-	public function callback_google_rezensionen_api( $attributes ) {
+	public static function callback_google_rezensionen_api( $attributes ) {
+
 		if ( $attributes ) {
 			ob_start();
 			isset( $attributes['className'] ) ? $class = $attributes['className'] : $class = '';
@@ -73,5 +74,4 @@ class Google_Rezensionen_Api_Block_Callback {
 			return ob_get_clean();
 		}
 	}
-
 }

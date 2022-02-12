@@ -16,6 +16,7 @@ use Hupa\RezensionenApi\Google_Rezensionen_Api_Defaults_Trait;
 use Rezensionen\AdminAjax\Google_Rezensionen_Api_Admin_Ajax;
 use Rezensionen\Endpoints\Google_Rezensionen_Api_Block_Callback;
 use Rezensionen\LicenseAjax\Hupa_Api_License_Ajax;
+//use Rezensionen\Widget\Google_Rezension_Api_Widget;
 use Twig\Environment;
 
 
@@ -145,15 +146,15 @@ class Google_Rezensionen_Api_Admin {
 
 		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );
 
-		/*$hook_suffix = add_submenu_page(
+		$hook_suffix = add_submenu_page(
 			'google-rezensionen-api',
-			__( 'Options', 'google-rezensionen-api' ),
-			__( 'Options', 'google-rezensionen-api' ),
+			__( 'Help', 'google-rezensionen-api' ),
+			__( 'Help', 'google-rezensionen-api' ),
 			$manage_options,
-			'google-rezensionen-settings',
-			array( $this, 'api_rezensionen_settings_page' ) );
+			'google-rezensionen-help',
+			array( $this, 'api_rezensionen_help_page' ) );
 
-		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );*/
+		add_action( 'load-' . $hook_suffix, array( $this, 'api_rezensionen_load_ajax_admin_options_script' ) );
 
 		$hook_suffix = add_submenu_page(
 			'google-rezensionen-api',
@@ -191,9 +192,9 @@ class Google_Rezensionen_Api_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function api_rezensionen_settings_page():void
+	public function api_rezensionen_help_page():void
 	{
-		require_once 'partials/google-rezensionen-api-admin-page-settings.php';
+		require_once 'partials/google-rezensionen-api-admin-page-help.php';
 	}
 
 	/**
@@ -226,6 +227,16 @@ class Google_Rezensionen_Api_Admin {
 			'nonce'    => $title_nonce,
 		) );
 	}
+
+
+    /**
+     * Register GOOGLE REZENSIONEN Classic Widget
+     *
+     * @since    1.0.0
+     */
+    public function register_google_rezension_classic_widget(): void {
+        //register_widget( Google_Rezension_Api_Widget::class);
+    }
 
 	/**
 	 * Register GOOGLE REZENSIONEN API AJAX ADMIN RESPONSE HANDLE

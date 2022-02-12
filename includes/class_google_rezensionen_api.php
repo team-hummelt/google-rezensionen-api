@@ -21,6 +21,7 @@ use Rezensionen\Endpoints\Google_Rezensionen_Api_Rest_Endpoint;
 use Rezensionen\Helper\Google_Rezensionen_Api_Helper;
 use Rezensionen\PublicRegister\Google_Rezensionen_Api_Public;
 use Rezensionen\Shortcode\Google_Rezensionen_Shortcode;
+//use Rezensionen\Widget\Google_Rezension_Api_Widget;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -177,6 +178,7 @@ class Google_Rezensionen_Api {
 		$this->define_public_hooks();
 		$this->define_google_api_curl_handle();
 		$this->define_google_api_shortcodes();
+        $this->define_google_api_classic_widget();
 	}
 
 	/**
@@ -262,6 +264,12 @@ class Google_Rezensionen_Api {
 		 * core plugin.
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class_google_rezensionen_shortcode.php';
+
+        /**
+         * WP_WIDGET Class
+         * core plugin.
+         */
+        //require_once plugin_dir_path(dirname(__FILE__)) . 'includes/classic-widget/class_google_rezension_api_widget.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -419,6 +427,19 @@ class Google_Rezensionen_Api {
 
 	}
 
+    /**
+     * Register all the hooks related to the admin area functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function define_google_api_classic_widget() {
+
+       // global $google_api_widget;
+       // $google_api_widget = new Google_Rezension_Api_Widget();
+    }
+
 	/**
 	 * Register API EDITOR Rest-Api Endpoints
 	 * of the plugin.
@@ -444,9 +465,6 @@ class Google_Rezensionen_Api {
 		$google_api_plugin_gutenberg_callback = new Google_Rezensionen_Api_Block_Callback($this->get_plugin_name(), $this->get_version(), $this->main);
 	}
 
-
-
-
 	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
@@ -466,7 +484,8 @@ class Google_Rezensionen_Api {
 		$this->loader->add_action('init', $plugin_admin, 'gutenberg_block_google_rezensionen_api_register');
 		// Gutenberg Scripts
 		$this->loader->add_action('enqueue_block_editor_assets', $plugin_admin, 'google_rezensionen_api_gutenberg_scripts');
-
+        // Classic Widget
+        //$this->loader->add_action('widgets_init', $plugin_admin, 'register_google_rezension_classic_widget');
 
 
 		/** Register Plugin Settings Menu
