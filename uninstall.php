@@ -43,4 +43,29 @@ $table_name = $wpdb->prefix . 'api_countries';
 $sql = "DROP TABLE IF EXISTS $table_name";
 $wpdb->query($sql);
 
+$table_name = $wpdb->prefix . 'google_rezension_extensions';
+$sql = "DROP TABLE IF EXISTS $table_name";
+$wpdb->query($sql);
+
 delete_option('jal_google_rezensionen_api_db_version');
+delete_option('google-rezensionen-api-rest-extension-api-options');
+
+$upload_dir = wp_get_upload_dir();
+$delDir = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'google-rezensionen-api-files' . DIRECTORY_SEPARATOR;
+wwdhDestroyDir($delDir);
+
+function wwdhDestroyDir($dir): bool
+{
+    if (!is_dir($dir) || is_link($dir))
+        return unlink($dir);
+
+    foreach (scandir($dir) as $file) {
+        if ($file == "." || $file == "..")
+            continue;
+        if (!wwdhDestroyDir($dir . "/" . $file)) {
+            chmod($dir . "/" . $file, 0777);
+            if (!wwdhDestroyDir($dir . "/" . $file)) return false;
+        }
+    }
+    return rmdir($dir);
+}

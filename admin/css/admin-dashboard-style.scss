@@ -43,6 +43,53 @@ $orange: #ff9800;
   border-top-color: $tooltip-bg !important;
 }
 
+.btn-no-bg {
+    i {
+      font-size: 24px;
+      color: $wp-blue;
+  }
+}
+
+.pre-templates {
+  background-color: #f7f7f7;
+  padding: 1rem;
+}
+
+pre {
+  counter-reset: line;
+  width: 100%;
+  display: inline-block;
+  .number {
+    min-width: 500px;
+    width: 100%;
+    display: block;
+    counter-increment: line;
+    padding: .25rem 0 .25rem .4rem;
+    vertical-align: middle !important;
+
+    &:before {
+      content: counter(line);
+      padding-right: 1rem;
+    }
+  }
+
+  .number:nth-child(odd) {
+    &:before {
+      color: #2a2a2a;
+    }
+    background-color: #ebebeb;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  .number:nth-child(even) {
+    background-color: #f1f1f1;
+
+    &:before {
+      color: #5e5e5e;
+    }
+  }
+}
+
 /*AUTOCOMPLETE */
 
 .autocomplete-items {
@@ -139,7 +186,23 @@ body .wp-bs-starter-wrapper {
 }
 
 .spin-deg {
-  animation: rotate 18s infinite;
+  display: inline-block;
+  animation: rotate-spin-deg 8s infinite;
+}
+
+@keyframes rotate-spin-deg {
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .text-google {

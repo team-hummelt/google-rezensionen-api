@@ -13,6 +13,13 @@
  * @subpackage Google_Rezensionen_Api/includes
  */
 
+
+use Goggle\Rezension\Create_Wwdh_Extension_Database;
+use Goggle\Rezension\WWDH_Extension_API;
+use Goggle\Rezension\Wwdh_Extension_Helper;
+use Goggle\Rezension\WWDH_Extension_Table;
+use Goggle\Rezension\Wwdh_Public_Api;
+use GoogleRezension\Extensions\GoogleRezensionExtensions;
 use Hupa\RezensionenApi\Google_Rezensionen_Api_Database;
 use Rezensionen\AdminRegister\Google_Rezensionen_Api_Admin;
 use Rezensionen\ApiCurlHandle\Google_Rezensionen_Api_Curl_Handle;
@@ -21,7 +28,6 @@ use Rezensionen\Endpoints\Google_Rezensionen_Api_Rest_Endpoint;
 use Rezensionen\Helper\Google_Rezensionen_Api_Helper;
 use Rezensionen\PublicRegister\Google_Rezensionen_Api_Public;
 use Rezensionen\Shortcode\Google_Rezensionen_Shortcode;
-//use Rezensionen\Widget\Google_Rezension_Api_Widget;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -51,6 +57,54 @@ class Google_Rezensionen_Api {
 	 */
 	protected Google_Rezensionen_Api_Loader $loader;
 
+    /**
+     * The Public API ID_RSA.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string $id_rsa plugin API ID_RSA.
+     */
+    private string $id_rsa;
+
+    /**
+     * The Public API DIR.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string $api_dir plugin API DIR.
+     */
+    private string $api_dir;
+
+    /**
+     * The Public Extension DIR.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string $twig_user_templates plugin Extension DIR.
+     */
+    private string $twig_user_templates;
+
+
+    /**
+     * The Public Extension Preview DIR.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string $extension_preview plugin Extension Preview DIR.
+     */
+    private string $extension_preview;
+
+    /**
+     * The Public Extension Preview DIR.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string $extension_dir plugin Extension Preview DIR.
+     */
+    private string $extension_dir;
+
+
+
 	/**
 	 * TWIG autoload for PHP-Template-Engine
 	 * the plugin.
@@ -60,6 +114,7 @@ class Google_Rezensionen_Api {
 	 * @var      Environment $twig TWIG autoload for PHP-Template-Engine
 	 */
 	protected Environment $twig;
+
 
 	/**
 	 * The unique identifier of this plugin.
@@ -135,7 +190,7 @@ class Google_Rezensionen_Api {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'google-rezensionen-api';
+
 
 		if ( defined( 'GOOGLE_REZENSIONEN_API_VERSION' ) ) {
 			$this->version = GOOGLE_REZENSIONEN_API_VERSION;
@@ -160,6 +215,18 @@ class Google_Rezensionen_Api {
 		$this->api_curl_dir = GOOGLE_REZENSIONEN_API_CURL_DIR;
 		$this->main = $this;
 
+        //JOB EXTENSION
+        if (is_file(GOOGLE_REZENSION_ID_RSA_DIR . 'public_id_rsa')) {
+            $id_rsa = file_get_contents(GOOGLE_REZENSION_ID_RSA_DIR . 'public_id_rsa');
+            $this->id_rsa = base64_encode($id_rsa);
+        } else {
+            $this->id_rsa = '';
+        }
+
+        $this->extension_preview = GOOGLE_REZENSION_EXTENSION_PREVIEW_DIR;
+        $this->extension_dir = GOOGLE_REZENSION_EXTENSION_DIR;
+        $this->api_dir = GOOGLE_REZENSION_EXTENSION_API_DIR;
+
 
 
 		//Check PHP AND WordPress Version
@@ -167,18 +234,36 @@ class Google_Rezensionen_Api {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->google_api_rezensionen_database();
+        //JOB EXTENSION
+
 
 		$tempDir = plugin_dir_path(dirname(__FILE__)) . 'includes' . DIRECTORY_SEPARATOR . 'templates';
 		$twig_loader = new FilesystemLoader($tempDir);
 		$this->twig = new Environment($twig_loader);
+
+
+        //JOB EXTENSION
+        $this->google_rezensionen_extension_options();
+        $this->register_extension_helper_class();
+        $this->wwdh_public_api();
+
+        $this->wwdh_extension_database();
+        $this->experience_reports_extension_database();
+        $this->wwdh_extension_api();
+
+
+
 		$this->google_api_helper();
 		$this->register_rezension_gutenberg_callback();
 		$this->register_api_editor_rest_api_routes();
-		$this->define_admin_hooks();
-		$this->define_public_hooks();
+
+        $this->define_admin_hooks();
+        $this->define_public_hooks();
+
 		$this->define_google_api_curl_handle();
 		$this->define_google_api_shortcodes();
         $this->define_google_api_classic_widget();
+
 	}
 
 	/**
@@ -205,12 +290,63 @@ class Google_Rezensionen_Api {
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php';
 
+        /**
+         * The trait for database of the Google_Rezensionen_Api
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/database/class_google_rezensionen_api_database.php';
 
-		/**
-		 * The trait for database of the Google_Rezensionen_Api
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/database/class_google_rezensionen_api_database.php';
+        //JOB EXTENSION START
+        /**
+         * The trait for the default settings of the BS-Formular2
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/api/api-classes/trait_extension_defaults.php';
+
+
+        /**
+         * The trait for database of the Google_Rezensionen_Api
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/api/database/class_create_wwdh_extension_database.php';
+
+
+        /**
+         * The trait for database of the Google_Rezensionen_Api
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/api/database/class_wwdh_extension_table.php';
+
+        /**
+         * The class for the Extension Options of the Wp_Experience_Reports
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/class-google-rezension-extensions.php';
+
+        /**
+         * The class for the Extension Options of the Wp_Experience_Reports
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/class-google-rezension-extensions.php';
+
+        /**
+         * The class responsible for defining all actions of the Public API.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/api/api-classes/class_wwdh_public_api.php';
+
+        /**
+         * The class for the Extension Options of the Wp_Experience_Reports
+         * of the plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/class-wwdh-extension-helper.php';
+
+        /**
+         * The class responsible for defining all actions of the Extension API.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'extensions/api/api-classes/class_wwdh_extension_api.php';
+
+
+        //JOB EXTENSION END
 
 		/**
 		 * The Helper Class for defining of the Google_Rezensionen_Api
@@ -350,7 +486,7 @@ class Google_Rezensionen_Api {
 	private function google_api_rezensionen_database() {
 
 		global $google_api_database;
-		$google_api_database = new Google_Rezensionen_Api_Database( $this->get_db_version(),$this->get_settings_id(), $this->main );
+		$google_api_database = new Google_Rezensionen_Api_Database($this->get_db_version(),$this->get_settings_id(), $this->main );
 
 		$this->loader->add_action('init', $google_api_database, 'update_create_google_rezensionen_api_database');
 		$this->loader->add_filter( $this->plugin_name.'/get_settings', $google_api_database, 'getHupaGoogleRezensionenApiSettings' );
@@ -449,9 +585,7 @@ class Google_Rezensionen_Api {
 	 */
 	private function register_api_editor_rest_api_routes() {
 		$google_api_plugin_endpoint = new Google_Rezensionen_Api_Rest_Endpoint($this->get_plugin_name(), $this->get_version(), $this->main);
-
 		$this->loader->add_action('rest_api_init', $google_api_plugin_endpoint, 'register_routes');
-
 	}
 
 	/**
@@ -479,13 +613,13 @@ class Google_Rezensionen_Api {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		//TODO REGISTER Admin-Menu
 		$this->loader->add_action('admin_menu', $plugin_admin, 'register_hupa_api_rezensionen_admin_menu');
-
 		// Gutenberg Callback
 		$this->loader->add_action('init', $plugin_admin, 'gutenberg_block_google_rezensionen_api_register');
 		// Gutenberg Scripts
 		$this->loader->add_action('enqueue_block_editor_assets', $plugin_admin, 'google_rezensionen_api_gutenberg_scripts');
         // Classic Widget
         //$this->loader->add_action('widgets_init', $plugin_admin, 'register_google_rezension_classic_widget');
+
 
 
 		/** Register Plugin Settings Menu
@@ -498,6 +632,9 @@ class Google_Rezensionen_Api {
 		// TODO AJAX LICENSE API RESPONSE HANDLE
 		$this->loader->add_action('wp_ajax_HupaLicenseAPIHandle', $plugin_admin, 'prefix_ajax_HupaLicenseAPIHandle');
 		//
+        //JOB EXTENSION CHECK
+        $this->loader->add_action('plugin_loaded', $plugin_admin, 'check_install_extension');
+        $this->loader->add_action('wp_ajax_GRExtensionAPIHandle', $plugin_admin, 'prefix_ajax_GRExtensionAPIHandle');
 	}
 
 	/**
@@ -519,6 +656,186 @@ class Google_Rezensionen_Api {
 		$this->loader->add_action('wp_ajax_HupaGooglePublicApiHandle', $plugin_public, 'prefix_ajax_HupaGooglePublicApiHandle');
 
 	}
+
+    /**
+     * Register all public api hooks
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function wwdh_public_api()
+    {
+
+        global $googleRezensionPublicApi;
+        $googleRezensionPublicApi = new Wwdh_Public_Api($this->get_version(), $this->get_plugin_name(), $this->main);
+
+        /**
+         * Get Public Support API Token
+         * Input: support_id | support_secret
+         * @since    1.0.0
+         * return access_Token Object
+         */
+        $this->loader->add_filter('get_public_support_api_token', $googleRezensionPublicApi, 'get_wwdh_public_support_api_token', 10, 2);
+
+        /**
+         * Get Public API Resource
+         * return API POST SUPPORT Resource Object
+         * @since    1.0.0
+         */
+        $this->loader->add_filter('wwdh_support_api_resource', $googleRezensionPublicApi, 'wwdh_support_api_post_resource', 10, 3);
+
+        /**
+         * Get Public API Resource
+         * return API POST JWT Resource Object
+         * @since    1.0.0
+         */
+
+        //WARNING DELETE ?
+        $this->loader->add_filter('get_public_resource_method', $googleRezensionPublicApi, 'wwdh_get_public_resource_method', 10, 3);
+
+
+        // TODO API DOWNLOAD WARNING DELETE ?
+        $this->loader->add_filter($this->plugin_name.'/wwdh_api_download', $googleRezensionPublicApi, 'wwdh_api_public_download', 10, 3);
+        /**
+         * Get Public API Ajax Resource Formular
+         * @since    1.0.0
+         */
+        $this->loader->add_filter('get_public_api_select_commands', $googleRezensionPublicApi, 'wwdh_public_api_select_commands', 10, 3);
+
+        /**
+         * Get Public API Formular Language
+         * @since    1.0.0
+         */
+        $this->loader->add_filter($this->plugin_name . '/get_ajax_language', $googleRezensionPublicApi, 'wwdh_ajax_language');
+
+    }
+
+    /**
+     * Register all the DATABASE hooks
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function wwdh_extension_database()
+    {
+        global $experienceReportsDatabase;
+        $experienceReportsDatabase = new Create_Wwdh_Extension_Database($this->get_db_version(),$this->plugin_name);
+        /**
+         * Create Database
+         * @since    1.0.0
+         */
+        $this->loader->add_action('init', $experienceReportsDatabase, 'update_create_wwdh_extension_database');
+    }
+
+    /**
+     * Register Class Wp_Experience_Reports Database
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function experience_reports_extension_database()
+    {
+        global $googleRezensionPublicApi;
+        $googleRezensionPublicApi = new Wwdh_Public_Api($this->get_version(), $this->get_plugin_name(), $this->main);
+
+
+        global $experienceReportsExtensionDB;
+        $experienceReportsExtensionDB = new WWDH_Extension_Table($this->get_plugin_name(), $this->main);
+
+        $this->loader->add_filter($this->plugin_name . '_get_extension', $experienceReportsExtensionDB, 'wwdh_get_extension', 10, 2);
+        $this->loader->add_action($this->plugin_name . '_set_extension', $experienceReportsExtensionDB, 'wwdhSetExtension');
+        $this->loader->add_action($this->plugin_name . '_update_extension_error', $experienceReportsExtensionDB, 'wwdhUpdateExtensionError');
+        $this->loader->add_action($this->plugin_name . '_update_extension', $experienceReportsExtensionDB, 'wwdhUpdateExtension');
+        $this->loader->add_action($this->plugin_name . '_delete_extension', $experienceReportsExtensionDB, 'wwdhDeleteExtension');
+        $this->loader->add_action($this->plugin_name . '_update_extension_last_connect', $experienceReportsExtensionDB, 'wwdhUpdateExtensionLastConnect');
+        $this->loader->add_action($this->plugin_name . '_update_extension_id_rsa', $experienceReportsExtensionDB, 'wwdhUpdateExtensionIdRsa');
+        $this->loader->add_action($this->plugin_name . '_update_activated_extension', $experienceReportsExtensionDB, 'wwdhUpdateActivatedExtension');
+
+    }
+
+    /**
+     * Register all the hooks related to the admin area functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function register_extension_helper_class()
+    {
+        global $plugin_extension_helper;
+        $plugin_extension_helper = new Wwdh_Extension_Helper($this->get_version(), $this->plugin_name, $this->main);
+        $this->loader->add_action( $this->plugin_name.'/FileSizeConvert', $plugin_extension_helper, 'FileSizeConvert' );
+        //Download Extension Previews
+        $this->loader->add_action( $this->plugin_name.'/download_extension_previews', $plugin_extension_helper, 'download_extension_previews' );
+        //check is Table
+        $this->loader->add_filter( $this->plugin_name.'/check_extension_table', $plugin_extension_helper, 'check_report_extension_database_table' );
+        $this->loader->add_filter( $this->plugin_name.'/get_plugin_folder', $plugin_extension_helper, 'get_plugin_folder' );
+        $this->loader->add_filter( $this->plugin_name.'/get_directoryL_list', $plugin_extension_helper, 'getDirectoryList' );
+
+    }
+
+    /**
+     * Basic settings Extension Options for Wp_Experience_Reports
+     *
+     * Uses the BS_Formular2_Extensions class to register the extension options and hook.
+     * register with WordPress.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+
+    private function google_rezensionen_extension_options()
+    {
+
+        global $extensionOptions;
+        $extensionOptions = new GoogleRezensionExtensions($this->get_plugin_name(), $this->get_version(), $this->main, $this->twig);
+
+        // TODO API-LOG
+        $this->loader->add_action($this->plugin_name.'/set_api_log', $extensionOptions, 'wwdh_set_api_log', 10, 2);
+        // TODO CHECK EXTENSION PREVIEW
+        $this->loader->add_action($this->plugin_name.'/check_extension_preview_updates', $extensionOptions, 'wwdh_check_extension_preview_updates');
+        // TODO Load Preview Extensions Data
+        $this->loader->add_filter($this->plugin_name.'/get_extension_preview_url_data', $extensionOptions, 'wwdh_get_extension_preview_url_data');
+
+        // TODO Twig HTML Template Loader
+        $this->loader->add_action('twig_template_loader', $extensionOptions, 'wwdh_twig_template_loader');
+
+        // TODO Return Description Template
+        $this->loader->add_filter('get_extension_description_template', $extensionOptions, 'get_wwdh_extension_description_template', 10, 2);
+        //TODO JOB CHECK LIZENZ
+        $this->loader->add_filter($this->plugin_name.'/check_extensions_installs', $extensionOptions, 'wwdh_check_extensions_installs', 10, 2);
+
+        $this->loader->add_action('check_delete_update_api_extension', $extensionOptions, 'wwdh_check_api_extension');
+
+        // TODO Extension Language URLS
+        $this->loader->add_filter('get_preview_language_url', $extensionOptions, 'wwdh_get_extension_preview_language_url');
+        // TODO GET Extension Folder
+
+        // TODO Activate Extension
+        $this->loader->add_filter($this->plugin_name . '/extension_activate', $extensionOptions, 'wwdh_activate_extension', 10, 3);
+
+        $this->loader->add_filter($this->plugin_name . '/read_folder', $extensionOptions, 'read_wwdh_folder', 10, 2);
+    }
+
+    /**
+     * Register all extension api hooks
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function wwdh_extension_api()
+    {
+        global $wwdhExtensionApi;
+        $wwdhExtensionApi = new WWDH_Extension_API($this->get_version(), $this->get_plugin_name(), $this->main);
+
+        // TODO Get License Data
+        $this->loader->add_filter($this->plugin_name . '/get_api_post_resource', $wwdhExtensionApi, 'wwdh_get_api_post_resource', 10, 4);
+        $this->loader->add_filter($this->plugin_name . '/extension_download', $wwdhExtensionApi, 'wwdh_api_extension_download', 10, 3);
+    }
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
@@ -590,5 +907,56 @@ class Google_Rezensionen_Api {
 	public function get_db_version(): string {
 		return $this->db_version;
 	}
+
+    /**
+     * License Config for the plugin.
+     *
+     * @return    object License Config.
+     * @since     1.0.0
+     */
+    public function get_license_config(): object
+    {
+        $config_file = plugin_dir_path(dirname(__FILE__)) . 'includes/license/config.json';
+        return json_decode(file_get_contents($config_file));
+    }
+
+    /**
+     * The EXTENSION PREVIEW DIR
+     *
+     *
+     * @return    string     EXTENSION PREVIEW DIR of the plugin.
+     * @since     1.0.0
+     */
+    public function get_extension_preview(): string
+    {
+        return $this->extension_preview;
+    }
+
+    /**
+     * The API DIR
+     *
+     *
+     * @return    string    API DIR of the plugin.
+     * @since     1.0.0
+     */
+    public function get_api_dir(): string
+    {
+        return $this->api_dir;
+    }
+
+    /**
+     * The Public Certificate
+     *
+     * @return    string    Public Certificate in BASE64.
+     * @since     1.0.0
+     */
+    public function get_id_rsa(): string
+    {
+        return $this->id_rsa;
+    }
+
+    public function get_twig_template_dir() :string {
+        return $this->twig_template_dir;
+    }
 
 }

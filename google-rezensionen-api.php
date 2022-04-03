@@ -38,7 +38,7 @@ define("GOOGLE_REZENSIONEN_API_VERSION", $plugin_data['Version']);
  * Currently DATABASE VERSION
  * @since             1.0.0
  */
-const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.1';
+const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.2';
 
 
 /**
@@ -104,6 +104,52 @@ $upload_dir = wp_get_upload_dir();
 define("GOOGLE_REZENSIONEN_API_UPLOAD_DIR", $upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'google-rezensionen-api-files' . DIRECTORY_SEPARATOR);
 define("GOOGLE_REZENSIONEN_API_UPLOAD_URL", $upload_dir['baseurl'] . '/google-rezensionen-api-files/');
 
+
+/**
+ * Extension Update Check Time
+ * @since             1.0.0
+ */
+const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 43200;
+//const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 10;
+/**
+ * PLUGIN API DIR
+ * @since             1.0.0
+ */
+define('GOOGLE_REZENSION_EXTENSION_API_DIR', dirname(__FILE__). DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR);
+
+/**
+ * PLUGIN EXTENSION API DIR
+ * @since             1.0.0
+ */
+define('GOOGLE_REZENSION_EXTENSION_DIR',  plugin_dir_path(__FILE__) . 'extensions' . DIRECTORY_SEPARATOR);
+
+
+/**
+ * PLUGIN PREVIEW EXTENSION PREVIEW DIR
+ * @since             1.0.0
+ */
+const GOOGLE_REZENSION_EXTENSION_PREVIEW_DIR = GOOGLE_REZENSION_EXTENSION_DIR . 'preview' . DIRECTORY_SEPARATOR;
+
+
+/**
+ * PLUGIN PREVIEW EXTENSION INSTALLED DIR
+ * @since             1.0.0
+ */
+const GOOGLE_REZENSION_EXTENSION_INSTALL_DIR = GOOGLE_REZENSION_EXTENSION_DIR . 'installed' . DIRECTORY_SEPARATOR;
+
+
+/**
+ * PLUGIN EXTENSION PREVIEW URL
+ * @since             1.0.0
+ */
+define('GOGGLE_REZENSION_EXTENSION_PREVIEW_URL',  plugins_url(GOOGLE_REZENSIONEN_API_BASENAME) . '/extensions/preview/' );
+
+/**
+ * PLUGIN ID_RSA DIR
+ * @since             1.0.0
+ */
+const GOOGLE_REZENSION_ID_RSA_DIR = GOOGLE_REZENSION_EXTENSION_API_DIR . 'id_rsa' . DIRECTORY_SEPARATOR;
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-google-rezensionen-api-activator.php
@@ -125,6 +171,10 @@ function deactivate_google_rezensionen_api() {
 register_activation_hook( __FILE__, 'activate_google_rezensionen_api' );
 register_deactivation_hook( __FILE__, 'deactivate_google_rezensionen_api' );
 
+
+require_once 'extensions/class-google-rezension-extensions-installed.php';
+$googleRezensionExtensionsInstalled = Goggle_Rezension_Extensions_Installed::instance();
+$googleRezensionExtensionsInstalled->google_rezension_installed_extensions();
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.

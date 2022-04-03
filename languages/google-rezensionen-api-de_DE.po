@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-02-02 17:04+0100\n"
-"PO-Revision-Date: 2022-02-02 17:05+0100\n"
+"POT-Creation-Date: 2022-04-02 06:33+0200\n"
+"PO-Revision-Date: 2022-04-02 06:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -50,29 +50,75 @@ msgstr "manuell"
 
 #: admin/ajax/class_google_rezensionen_api_admin_ajax.php:835
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:100
-#: includes/class_google_rezensionen_shortcode.php:249
+#: includes/class_google_rezensionen_shortcode.php:252
 msgid "Rezension"
 msgstr "Rezension"
 
 #: admin/ajax/class_google_rezensionen_api_admin_ajax.php:835
-#: admin/class_google_rezensionen_api_admin.php:130
-#: admin/class_google_rezensionen_api_admin.php:131
-#: admin/class_google_rezensionen_api_admin.php:170
-#: admin/class_google_rezensionen_api_admin.php:171
+#: admin/class_google_rezensionen_api_admin.php:132
+#: admin/class_google_rezensionen_api_admin.php:133
+#: admin/class_google_rezensionen_api_admin.php:172
+#: admin/class_google_rezensionen_api_admin.php:173
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:98
-#: includes/class_google_rezensionen_shortcode.php:249
+#: includes/class_google_rezensionen_shortcode.php:252
 msgid "Rezensionen"
 msgstr "Rezensionen"
 
-#: admin/class_google_rezensionen_api_admin.php:114
+#: admin/ajax/class_wwdh_api_ajax.php:513
+#: admin/ajax/class_wwdh_api_ajax.php:518
+#: extensions/api/api-classes/class_wwdh_public_api.php:412
+msgid "Server Response"
+msgstr ""
+
+#: admin/ajax/class_wwdh_api_ajax.php:550
+#: admin/ajax/class_wwdh_api_ajax.php:557
+#: extensions/api/api-classes/trait_extension_defaults.php:89
+msgid "at"
+msgstr "um"
+
+#: admin/ajax/class_wwdh_api_ajax.php:550
+#: admin/ajax/class_wwdh_api_ajax.php:557
+#: extensions/api/api-classes/trait_extension_defaults.php:90
+msgid "Clock"
+msgstr "Uhr"
+
+#: admin/ajax/class_wwdh_api_ajax.php:554
+#: extensions/api/api-classes/trait_extension_defaults.php:88
+msgid "Months"
+msgstr "Monate"
+
+#: admin/ajax/class_wwdh_api_ajax.php:554
+#: extensions/api/api-classes/trait_extension_defaults.php:87
+msgid "Month"
+msgstr "Monat"
+
+#: admin/ajax/class_wwdh_api_ajax.php:559
+#: admin/ajax/class_wwdh_api_ajax.php:560
+#: admin/ajax/class_wwdh_api_ajax.php:564
+#: admin/ajax/class_wwdh_api_ajax.php:570
+#: extensions/api/api-classes/trait_extension_defaults.php:91
+msgid "unlimited"
+msgstr "unbegrenzt"
+
+#: admin/ajax/class_wwdh_api_ajax.php:568
+#: extensions/api/api-classes/trait_extension_defaults.php:92
+msgid "Installations"
+msgstr "Installationen"
+
+#: admin/ajax/class_wwdh_api_ajax.php:568
+#: extensions/api/api-classes/trait_extension_defaults.php:93
+msgid "Installation"
+msgstr "Installation"
+
+#: admin/class_google_rezensionen_api_admin.php:116
 #: admin/partials/google-rezensionen-api-admin-options-page.php:32
 #: admin/partials/google-rezensionen-api-admin-startpage.php:51
 #: admin/partials/google-rezensionen-api-admin-startpage.php:54
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: admin/class_google_rezensionen_api_admin.php:140
-#: admin/class_google_rezensionen_api_admin.php:141
+#: admin/class_google_rezensionen_api_admin.php:142
+#: admin/class_google_rezensionen_api_admin.php:143
 #: admin/partials/google-rezensionen-api-admin-startpage.php:27
 #: admin/partials/google-rezensionen-api-admin-startpage.php:40
 #: admin/partials/google-rezensionen-api-admin-startpage.php:46
@@ -80,52 +126,33 @@ msgstr "Einstellungen"
 msgid "Overview"
 msgstr "Übersicht"
 
-#: admin/class_google_rezensionen_api_admin.php:150
-#: admin/class_google_rezensionen_api_admin.php:151
-#: admin/partials/google-rezensionen-api-admin-page-help.php:31
-#: admin/partials/google-rezensionen-api-admin-page-help.php:40
-msgid "Help"
-msgstr "Hilfe"
-
-#: admin/class_google_rezensionen_api_admin.php:160
-#: admin/class_google_rezensionen_api_admin.php:161
-#: admin/partials/google-rezensionen-api-admin-extension.php:26
+#: admin/class_google_rezensionen_api_admin.php:162
+#: admin/class_google_rezensionen_api_admin.php:163
+#: admin/partials/google-rezensionen-api-admin-extension.php:7
+#: admin/partials/google-rezensionen-api-admin-extension.php:21
 msgid "Extensions"
 msgstr "Erweiterungen"
 
+#: admin/partials/google-rezensionen-api-admin-extension.php:6
 #: admin/partials/google-rezensionen-api-admin-extension.php:20
 #: admin/partials/google-rezensionen-api-admin-options-page.php:24
-#: admin/partials/google-rezensionen-api-admin-page-help.php:24
-#: admin/partials/google-rezensionen-api-admin-page-help.php:31
+#: admin/partials/google-rezensionen-api-admin-page-help.php:26
+#: admin/partials/google-rezensionen-api-admin-page-help.php:33
 #: admin/partials/google-rezensionen-api-admin-startpage.php:26
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:96
 msgid "Google Rezensionen"
 msgstr "Google Rezensionen"
 
-#: admin/partials/google-rezensionen-api-admin-extension.php:26
-msgid "Google Business API"
-msgstr "Google Business API"
-
-#: admin/partials/google-rezensionen-api-admin-extension.php:28
-msgid "There are currently no extensions available."
-msgstr "Es sind derzeit keine Erweiterungen verfügbar."
-
-#: admin/partials/google-rezensionen-api-admin-extension.php:37
-#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:101
-msgid "Reviews"
-msgstr "Rezensionen"
-
-#: admin/partials/google-rezensionen-api-admin-extension.php:41
-#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:144
-msgid ""
-"With the Google Reviews API plugin you can easily view your reviews. Don't "
-"worry about privacy, the reviews are synchronized in the background. Data of "
-"your visitors will not be transferred to Google."
+#: admin/partials/google-rezensionen-api-admin-extension.php:14
+#: admin/partials/google-rezensionen-api-admin-startpage.php:32
+msgid "Extensions are being updated and will be available again shortly."
 msgstr ""
-"Mit dem Plugin \"Google Rezensionen API\" können Sie sich ganz einfach Ihre "
-"Bewertungen anzeigen lassen. Machen Sie sich keine Gedanken um den "
-"Datenschutz, die Bewertungen werden im Hintergrund synchronisiert. Daten "
-"Ihrer Besucher werden nicht an Google übertragen."
+"Erweiterungen werden aktualisiert und werden in Kürze wieder verfügbar sein."
+
+#: admin/partials/google-rezensionen-api-admin-extension.php:24
+#: extensions/api/api-classes/trait_extension_defaults.php:71
+msgid "back to the overview"
+msgstr "zurück zur Übersicht"
 
 #: admin/partials/google-rezensionen-api-admin-options-page.php:32
 msgid "Google API"
@@ -177,14 +204,13 @@ msgstr ""
 "Google Maps zu verwalten. %sHier</a> erfahren Sie, wie Sie einen API-"
 "Schlüssel erstellen."
 
-#: admin/partials/google-rezensionen-api-admin-page-help.php:40
+#: admin/partials/google-rezensionen-api-admin-page-help.php:33
+msgid "Help"
+msgstr "Hilfe"
+
+#: admin/partials/google-rezensionen-api-admin-page-help.php:44
 msgid "Templates shortcode and widget output"
 msgstr "Templates Shortcode und Widget-Ausgabe"
-
-#: admin/partials/google-rezensionen-api-admin-startpage.php:32
-msgid "Extensions are being updated and will be available again shortly."
-msgstr ""
-"Erweiterungen werden aktualisiert und werden in Kürze wieder verfügbar sein."
 
 #: admin/partials/google-rezensionen-api-admin-startpage.php:67
 #: admin/partials/google-rezensionen-api-admin-startpage.php:325
@@ -421,6 +447,194 @@ msgstr ""
 msgid "Delete"
 msgstr "Löschen"
 
+#: extensions/api/api-classes/class_wwdh_extension_api.php:79
+msgid "License ID is empty."
+msgstr "Die Lizenz-ID ist leer."
+
+#: extensions/api/api-classes/class_wwdh_extension_api.php:90
+msgid "Invalid server response."
+msgstr "Ungültige Serverantwort."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:392
+msgid "Public API command execute"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:393
+msgid "Public API command"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:394
+msgid "Support ID"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:395
+msgid "Support Password"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:396
+msgid "Execute command"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:397
+msgid "execute"
+msgstr ""
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:398
+msgid "cancel"
+msgstr "abbrechen"
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:399
+#, fuzzy
+#| msgid "Google Business API Settings"
+msgid "Reset Public API Settings"
+msgstr "Google Business API-Einstellungen"
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:406
+msgid "An error has occurred. <b>All input fields</b> must be filled in."
+msgstr ""
+"Es ist ein Fehler aufgetreten. <b>Alle Eingabefelder</b> müssen ausgefüllt "
+"werden."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:408
+msgid "An error has occurred. No connection to the server can be established."
+msgstr ""
+"Es ist ein Fehler aufgetreten. Es kann keine Verbindung zum Server "
+"hergestellt werden."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:410
+msgid "An error has occurred. Invalid server response."
+msgstr "Es ist ein Fehler aufgetreten. Ungültige Server-Antwort."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:414
+msgid "An error has occurred."
+msgstr "Es ist ein Fehler aufgetreten."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:416
+msgid "Wrong licence format. Licence is invalid!"
+msgstr "Falsches Lizenzformat. Die Lizenz ist ungültig!"
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:422
+msgid "The command was executed successfully."
+msgstr "Der Befehl wurde erfolgreich ausgeführt."
+
+#: extensions/api/api-classes/class_wwdh_public_api.php:424
+msgid "Action successfully executed."
+msgstr "Aktion erfolgreich durchgeführt."
+
+#: extensions/api/api-classes/trait_extension_defaults.php:60
+msgid "Extension"
+msgstr "Erweiterung"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:61
+msgid "Plugin for"
+msgstr "Plugin für"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:62
+msgid "Status"
+msgstr ""
+
+#: extensions/api/api-classes/trait_extension_defaults.php:63
+msgid "details"
+msgstr ""
+
+#: extensions/api/api-classes/trait_extension_defaults.php:64
+msgid "download"
+msgstr ""
+
+#: extensions/api/api-classes/trait_extension_defaults.php:65
+msgid "activate"
+msgstr "aktivieren"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:66
+msgid "Activates"
+msgstr "Aktiviert"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:67
+msgid "activates"
+msgstr "aktiviert"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:68
+msgid "deactivated"
+msgstr "deaktiviert"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:69
+msgid "license"
+msgstr "Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:70
+msgid "Licence details"
+msgstr "Details zur Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:72
+msgid "Licence for"
+msgstr "Lizenz für"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:73
+msgid "Licence"
+msgstr "Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:74
+msgid "Activation-code"
+msgstr "Aktivierungscode"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:75
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:91
+msgid "copies"
+msgstr "Kopien"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:76
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:92
+msgid "copy"
+msgstr "kopiert"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:77
+msgid "Time limit"
+msgstr "Zeitliche Begrenzung"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:78
+msgid "Url-Limit"
+msgstr "Url-Begrenzung"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:79
+msgid "Licence start"
+msgstr "Beginn der Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:80
+msgid "Licence end"
+msgstr "Ende der Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:81
+msgid "Version"
+msgstr "Version"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:82
+msgid "Extension for"
+msgstr "Erweiterung für"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:83
+msgid "File size"
+msgstr "Dateigröße"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:84
+msgid "Type"
+msgstr "Typ"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:85
+msgid "PHP Min"
+msgstr ""
+
+#: extensions/api/api-classes/trait_extension_defaults.php:86
+msgid "WP Min"
+msgstr ""
+
+#: extensions/api/api-classes/trait_extension_defaults.php:94
+msgid "URL Licence"
+msgstr "URL-Lizenz"
+
+#: extensions/api/api-classes/trait_extension_defaults.php:95
+msgid "not activated"
+msgstr "nicht aktiviert"
+
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:73
 msgid "<b class=\"strong-font-weight\">Ajax error:</b> No data was received."
 msgstr ""
@@ -468,17 +682,13 @@ msgstr "Google-Eintrag"
 msgid "Select entry"
 msgstr "Eintrag auswählen"
 
-#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:91
-msgid "copies"
-msgstr "kopiert"
-
-#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:92
-msgid "copy"
-msgstr "kopieren"
-
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:94
 msgid "Place-ID"
 msgstr "Place ID"
+
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:101
+msgid "Reviews"
+msgstr "Rezensionen"
 
 #: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:102
 msgid "Google"
@@ -602,7 +812,18 @@ msgstr ""
 "Google My Business API ist ein automatisierter Prozess, der es autorisierten "
 "Personen ermöglicht, Standortdaten für Google Maps zu verwalten."
 
-#: includes/class_google_rezensionen_api.php:314
+#: includes/Traits/Google_Rezensionen_Api_Defaults_Trait.php:144
+msgid ""
+"With the Google Reviews API plugin you can easily view your reviews. Don't "
+"worry about privacy, the reviews are synchronized in the background. Data of "
+"your visitors will not be transferred to Google."
+msgstr ""
+"Mit dem Plugin \"Google Rezensionen API\" können Sie sich ganz einfach Ihre "
+"Bewertungen anzeigen lassen. Machen Sie sich keine Gedanken um den "
+"Datenschutz, die Bewertungen werden im Hintergrund synchronisiert. Daten "
+"Ihrer Besucher werden nicht an Google übertragen."
+
+#: includes/class_google_rezensionen_api.php:446
 #, php-format
 msgid ""
 "This plugin has been disabled because it requires a PHP version greater than "
@@ -1069,6 +1290,34 @@ msgstr "tierärztliche Betreuung"
 msgid "zoo"
 msgstr "Zoo"
 
+#: includes/classic-widget/class_google_rezension_api_widget.php:55
+#: includes/classic-widget/class_google_rezension_api_widget.php:116
+msgid "Google Rezension"
+msgstr "Google Rezension"
+
+#: includes/classic-widget/class_google_rezension_api_widget.php:122
+msgid "Title"
+msgstr ""
+
+#: includes/classic-widget/class_google_rezension_api_widget.php:128
+#, fuzzy
+#| msgid "Rezensionen"
+msgid "Rezension select"
+msgstr "Rezensionen"
+
+#: includes/classic-widget/class_google_rezension_api_widget.php:131
+#: includes/classic-widget/class_google_rezension_api_widget.php:144
+msgid "select"
+msgstr "auswählen"
+
+#: includes/classic-widget/class_google_rezension_api_widget.php:141
+msgid "Template select"
+msgstr ""
+
+#: includes/classic-widget/class_google_rezension_api_widget.php:153
+msgid "Background color"
+msgstr ""
+
 #: includes/database/class_google_rezensionen_api_database.php:90
 msgid "Upload directory could not be created."
 msgstr "Upload directory could not be created."
@@ -1080,6 +1329,12 @@ msgstr "Daten konnten nicht gespeichert werden!"
 #: includes/database/class_google_rezensionen_api_database.php:336
 msgid "Data saved!"
 msgstr "Daten erfolgreich gespeichert!"
+
+#~ msgid "Google Business API"
+#~ msgstr "Google Business API"
+
+#~ msgid "There are currently no extensions available."
+#~ msgstr "Es sind derzeit keine Erweiterungen verfügbar."
 
 #~ msgid "big"
 #~ msgstr "groß"
