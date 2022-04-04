@@ -49,7 +49,10 @@ $wpdb->query($sql);
 
 delete_option('jal_google_rezensionen_api_db_version');
 delete_option('google-rezensionen-api-rest-extension-api-options');
+delete_option('jal_google_rezensionen_extension_api_db_version');
 delete_option('extension_access_token');
+delete_option('google-rezensionen-api/wwdh_extension_check');
+
 $upload_dir = wp_get_upload_dir();
 $delDir = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'google-rezensionen-api-files' . DIRECTORY_SEPARATOR;
 wwdhDestroyDir($delDir);
