@@ -608,9 +608,12 @@ final class WWDH_Api_Ajax
                 $licenseData = $this->get_extension_license_data($licenseData);
 
                 $licenseData->l = $this->get_theme_default_settings('extension_preview_language');
-
+                $licenseData->extension_logo = GOGGLE_REZENSION_EXTENSION_PREVIEW_URL . $licenseData->extension_filename . '/' . $data->extension_logo;
+                $tempDir = GOOGLE_REZENSION_EXTENSION_DIR . 'templates';
+                $twig_loader = new FilesystemLoader($tempDir);
+                $twig = new Environment($twig_loader);
                 try {
-                    $template = $this->twig->render('license.twig', ['data' => $licenseData]);
+                    $template = $twig->render('license.twig', ['data' => $licenseData]);
                     $responseJson->template = preg_replace(array('/<!--(.*)-->/Uis', "/[[:blank:]]+/"), array('', ' '), str_replace(array("\n", "\r", "\t"), '', $template));
                 } catch (LoaderError|SyntaxError|RuntimeError $e) {
                     $responseJson->msg = $e->getMessage();
