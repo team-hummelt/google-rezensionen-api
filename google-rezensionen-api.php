@@ -38,7 +38,7 @@ define("GOOGLE_REZENSIONEN_API_VERSION", $plugin_data['Version']);
  * Currently DATABASE VERSION
  * @since             1.0.0
  */
-const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.2';
+const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.0';
 
 
 /**
@@ -109,8 +109,8 @@ define("GOOGLE_REZENSIONEN_API_UPLOAD_URL", $upload_dir['baseurl'] . '/google-re
  * Extension Update Check Time
  * @since             1.0.0
  */
-const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 43200;
-//const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 10;
+//const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 43200;
+const GOOGLE_REZENSION_UPDATE_EXTENSION_TIME = 10;
 /**
  * PLUGIN API DIR
  * @since             1.0.0

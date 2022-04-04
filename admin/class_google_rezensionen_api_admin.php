@@ -18,6 +18,7 @@ use Rezensionen\AdminAjax\Google_Rezensionen_Api_Admin_Ajax;
 use Rezensionen\Endpoints\Google_Rezensionen_Api_Block_Callback;
 use Rezensionen\LicenseAjax\Hupa_Api_License_Ajax;
 //use Rezensionen\Widget\Google_Rezension_Api_Widget;
+use Rezensionen\SrvApi\Api_Request_Exec;
 use Twig\Environment;
 
 
@@ -280,6 +281,19 @@ class Google_Rezensionen_Api_Admin {
         if($time < current_time('timestamp')) {
             apply_filters($this->basename.'/check_extensions_installs','');
             update_option($this->basename.'/wwdh_extension_check', current_time('timestamp'));
+        }
+
+
+
+    }
+
+    public function check_srv_api_config() {
+        $config = $this->main->get_plugin_api_config();
+        if(!$config->rest_url) {
+            $config->rest_url =  rest_url('plugin/'.$this->basename.'/v'.$this->version.'/');
+            $config->site_url = site_url();
+            $config->license = 0;
+            $config->basename = $this->basename;
         }
     }
 

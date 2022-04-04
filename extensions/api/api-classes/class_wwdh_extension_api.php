@@ -166,11 +166,27 @@ class WWDH_Extension_API
 
         $args = sprintf('WHERE license="%s"', $licenseData->license);
         $dbExtension = apply_filters($this->basename.'_get_extension', $args, false);
+
+        $grouData = [];
+        if(isset($licenseData->group_data) && $licenseData->group_data && is_array($licenseData->group_data)){
+            foreach ($licenseData->group_data as $tmp){
+                if($tmp->product_slug == $this->basename){
+                   $grouData = $tmp;
+                   break;
+                }
+            }
+        }
+
         $record = new stdClass();
         $record->license = $licenseData->license;
         $record->id_rsa = $licenseData->id_rsa;
-        $record->folder = $licenseData->extension_filename;
         $record->aktiv = 1;
+        $record->license_type = $licenseData->license_type;
+
+        $grouData ? $record->folder = $grouData->extension_filename : $record->folder = $licenseData->extension_filename;
+        $grouData ? $record->version = $grouData->extension_version : $record->version = $licenseData->extension_version;
+        $grouData ? $record->update_version = $grouData->extension_version : $record->update_version = $licenseData->extension_version;
+
         if($licenseData->url_limit){
             if($licenseData->url_license_data){
                 $record->url_activated = $licenseData->url_license_data->activated;

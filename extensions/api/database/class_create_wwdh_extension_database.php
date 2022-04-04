@@ -71,9 +71,10 @@ final class Create_Wwdh_Extension_Database
      */
     public function update_create_wwdh_extension_database()
     {
-        if ($this->dbVersion !== get_option('jal_google_rezensionen_api_db_version')) {
+
+        if ($this->dbVersion != get_option('jal_google_rezensionen_extension_api_db_version')) {
             $this->create_extension_database();
-            update_option('jal_google_rezensionen_api_db_version', $this->dbVersion);
+            update_option('jal_google_rezensionen_extension_api_db_version', $this->dbVersion);
             //update_create_experience_reports_database
         }
        // $this->install_default_slider();
@@ -97,6 +98,10 @@ final class Create_Wwdh_Extension_Database
         folder varchar(128) NOT NULL UNIQUE,
         id_rsa varchar(8000) NOT NULL,
         aktiv tinyint(1) NOT NULL DEFAULT 1,
+        license_type varchar(24) NOT NULL,
+        is_update tinyint(1) NOT NULL DEFAULT 0,
+        version varchar(12) NOT NULL,
+        update_version varchar(12) NULL,
         url_limit_aktiv tinyint(1) NOT NULL,
         url_id varchar(32) NULL,
         url_activated tinyint(1) NOT NULL DEFAULT 1,

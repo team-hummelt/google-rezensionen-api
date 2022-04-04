@@ -410,7 +410,7 @@ final class WWDH_Api_Ajax
 
                 try {
                     $apiData = apply_filters($this->basename . '/get_api_post_resource', $body, $license);
-
+                    //print_r($apiData);
                 } catch (Exception $e) {
 
                     if ($e->getMessage() == 'Client access data is unknown.') {
@@ -421,8 +421,29 @@ final class WWDH_Api_Ajax
                     return $responseJson;
                 }
 
-                $licenseData = $this->get_extension_license_data($apiData);
+                $grouData = [];
+                if(isset($apiData->group_data) && $apiData->group_data && is_array($apiData->group_data)){
+                    foreach ($apiData->group_data as $tmp){
+                        if($tmp->product_slug == $this->basename){
+                            $grouData = $tmp;
+                            break;
+                        }
+                    }
+                    $apiData->product_slug = $grouData->product_slug;
+                    $apiData->file_size = $grouData->file_size;
+                    $apiData->extension_name = $grouData->extension_name;
+                    $apiData->extension_filename = $grouData->extension_filename;
+                    $apiData->extension_subtitle = $grouData->extension_subtitle;
+                    $apiData->extension_version = $grouData->extension_version;
+                    $apiData->extension_description = $grouData->extension_description;
+                    $apiData->extension_php_min = $grouData->extension_php_min;
+                    $apiData->extension_wp_min = $grouData->extension_wp_min;
+                    $apiData->mime_type = $grouData->mime_type;
+                    unset($apiData->group_data);
+                }
 
+
+                $licenseData = $this->get_extension_license_data($apiData);
                 $licenseData->l = $lang;
                 $dataUrl = $extensionOptions->wwdh_get_extension_preview_url_data($licenseData->extension_filename);
                 $data = json_decode(file_get_contents($dataUrl));
@@ -461,9 +482,6 @@ final class WWDH_Api_Ajax
                 $descriptionJson = $fileData->description_url . 'description.json';
                 $json = json_decode(file_get_contents($descriptionJson));
                 $json->images ? $images = $json->images : $images = [];
-
-
-
 
                 $twig_loader = new FilesystemLoader($fileData->path);
                 $twig = new Environment($twig_loader);
@@ -525,13 +543,13 @@ final class WWDH_Api_Ajax
                     'get_data' => 'download_extension',
                     'license_url' => get_site_url(),
                     'url_limit' => $url_limit_aktiv,
+                    'extension_slug' => $extData->folder,
                     'url_id' => $url_id
                 ];
 
                 $url = get_option($this->basename . '-api-options')['extension_api_extension_download'];
                 $downloadDir = GOOGLE_REZENSION_EXTENSION_DIR . 'installed' . DIRECTORY_SEPARATOR;
                 $download = apply_filters($this->basename . '/extension_download', $url, $body, $license);
-
                 @file_put_contents($downloadDir . $extData->folder . '.zip', $download);
                 WP_Filesystem();
                 $unZipFile = unzip_file($downloadDir . $extData->folder . '.zip', $downloadDir);

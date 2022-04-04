@@ -84,6 +84,9 @@ final class WWDH_Extension_Table
             $table,
             array(
                 'license' => $record->license,
+                'license_type' => $record->license_type,
+                'version' => $record->version,
+                'update_version' => $record->version,
                 'folder' => $record->folder,
                 'id_rsa' => $record->id_rsa,
                 'aktiv' => $record->aktiv,
@@ -92,7 +95,7 @@ final class WWDH_Extension_Table
                 'url_id' => $record->url_id,
                 'url_activated' => $record->url_activated,
             ),
-            array('%s', '%s', '%s', '%d', '%s', '%d', '%s', '%d')
+            array('%s','%s','%s', '%s', '%s', '%s','%d', '%s', '%d', '%s', '%d')
         );
     }
 

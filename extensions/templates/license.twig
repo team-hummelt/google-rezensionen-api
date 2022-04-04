@@ -37,7 +37,7 @@
                             class="strong-font-weight">{{ data.l.type }}:</b> {{ data.license_type }} </span>
                 <hr>
                 <dl class="row">
-                    <dt class="col-sm-2 col-3 text-truncate">{{ data.l.activation_code }}:</dt>
+                    <dt title="{{ data.l.activation_code }}" class="col-sm-2 col-3 text-truncate">{{ data.l.activation_code }}:</dt>
                     <dd class="col-sm-10 col-9">
                         <span class="wp-color strong-font-weight text-nowrap"> {{ data.license }}</span> &nbsp;
                         <i data-id="{{ data.license }}" onclick="copy_data_client(this)" title="{{ data.l.copy }}"
@@ -45,19 +45,19 @@
                         <sup id="info{{ data.license }}"
                              class="d-inline-block showInfo wp-color">&nbsp; {{ data.l.copies }}....</sup>
                     </dd>
-                    <dt class="col-sm-2">{{ data.l.time_limit }}:</dt>
+                    <dt title="{{ data.l.time_limit }}" class="col-sm-2 text-truncate">{{ data.l.time_limit }}:</dt>
                     <dd class="col-sm-10">
                         <span class="wp-color strong-font-weight">{% if data.time_limit > 0 %}{{ data.time_limit }} {% endif %} {{ data.limitMonat }}</span>
                     </dd>
-                    <dt class="col-sm-2">{{ data.l.url_limit }}:</dt>
+                    <dt title="{{ data.l.url_limit }}" class="col-sm-2 text-truncate">{{ data.l.url_limit }}:</dt>
                     <dd class="col-sm-10">
                         <span class="wp-color strong-font-weight">{{ data.url_limit }} {{ data.urlLimitTxt }}</span>
                     </dd>
-                    <dt class="col-sm-2">{{ data.l.licence_start }}:</dt>
+                    <dt title="{{ data.l.licence_start }}" class="col-sm-2 text-truncate">{{ data.l.licence_start }}:</dt>
                     <dd class="col-sm-10">
                         <span class="wp-color  {% if not  data.activated %} text-danger {% endif %}  strong-font-weight">{{ data.activatedTime }}</span>
                     </dd>
-                    <dt class="col-sm-2">{{ data.l.licence_end }}:</dt>
+                    <dt title="{{ data.l.licence_end }}" class="col-sm-2 text-truncate">{{ data.l.licence_end }}:</dt>
                     <dd class="col-sm-10">
                         <span class="wp-color strong-font-weight">{{ data.licenseEndTime }}</span>
                     </dd>
