@@ -16,11 +16,14 @@
  * Plugin Name:       HUPA Google Rezensionen
  * Plugin URI:        https://www.hummelt-werbeagentur.de/
  * Description:       HUPA Google Reviews allows you to easily filter Google reviews and display them on your page.
- * Version:           1.0.0
+ * Version:           1.0.2
  * Author:            Jens Wiecker
  * Author URI:        https://www.hummelt-werbeagentur.de/
  * License:           MIT License
- * Stable tag:        1.0.0
+ * Stable tag:        1.0.2
+ * Tested up to:      5.9
+ * Requires PHP:      7.4
+ * Requires at least: 5.6
  */
 
 // If this file is called directly, abort.
@@ -38,7 +41,7 @@ define("GOOGLE_REZENSIONEN_API_VERSION", $plugin_data['Version']);
  * Currently DATABASE VERSION
  * @since             1.0.0
  */
-const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.0';
+const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.2';
 
 
 /**

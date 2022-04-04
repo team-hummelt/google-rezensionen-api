@@ -10,10 +10,10 @@ hummelt und partner | Werbeagentur GmbH
 ### Google-Rezensionen API Free Version
 * Contributors: jwiecker
 * Tags: google, rezension, google rezension, privacy friendly, google privacy friendly, bewertung, google bewertung
-* Requires at least: 5.9
-* Tested up to: 5.6
-* Stable tag: 1.0.0
-* Version: 1.0.0
+* Requires at least: 5.6
+* Tested up to: 5.9
+* Stable tag: 1.0.2
+* Version: 1.0.2
 * Requires PHP: 7.4
 * License: MIT License
 
