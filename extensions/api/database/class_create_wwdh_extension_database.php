@@ -72,9 +72,9 @@ final class Create_Wwdh_Extension_Database
     public function update_create_wwdh_extension_database()
     {
 
-        if ($this->dbVersion != get_option('jal_google_rezensionen_extension_api_db_version')) {
+        if (GOOGLE_REZENSIONEN_EXTENSION_API_DB_VERSION != get_option('jal_google_rezensionen_extension_api_db_version')) {
             $this->create_extension_database();
-            update_option('jal_google_rezensionen_extension_api_db_version', $this->dbVersion);
+            update_option('jal_google_rezensionen_extension_api_db_version', GOOGLE_REZENSIONEN_EXTENSION_API_DB_VERSION);
             //update_create_experience_reports_database
         }
        // $this->install_default_slider();

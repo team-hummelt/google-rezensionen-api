@@ -42,7 +42,7 @@ define("GOOGLE_REZENSIONEN_API_VERSION", $plugin_data['Version']);
  * @since             1.0.0
  */
 const GOOGLE_REZENSIONEN_API_DB_VERSION = '1.0.2';
-
+const GOOGLE_REZENSIONEN_EXTENSION_API_DB_VERSION = '1.0.0';
 
 /**
  * MIN PHP VERSION for Activate
