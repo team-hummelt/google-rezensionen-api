@@ -20,16 +20,18 @@ $api_sync_settings = $dbData->api_sync_settings;
 ?>
 <div class="wp-bs-starter-wrapper">
     <div class="container">
+
         <div class="card shadow-sm">
             <h5 class="card-header d-flex align-items-center bg-google py-4">
                 <i class="fa fa-google"></i> &nbsp;
-				<?= __( 'Google Rezensionen', 'google-rezensionen-api' ) ?> /&nbsp;
+                <?= __( 'Google Rezensionen', 'google-rezensionen-api' ) ?> /&nbsp;
                 <span class="currentSideTitle"> <?= __( 'Overview', 'google-rezensionen-api' ) ?></span></h5>
             <div class="card-body pb-4" style="min-height: 72vh">
+
                 <div id="apiErrMsg" class="card shadow-sm m-5 d-none">
                     <h5 class="card-header text-center py-5">
                         <i class="font-blue fa fa-hourglass-half spin-deg"></i>&nbsp;
-						<?= __( 'Extensions are being updated and will be available again shortly.', 'google-rezensionen-api' ) ?>
+                        <?= __( 'Extensions are being updated and will be available again shortly.', 'google-rezensionen-api' ) ?>
                     </h5>
                 </div>
 
@@ -110,7 +112,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                     </button>
                                 </div>
                                 <div class="form-text">
-									<?= __( 'If you do not know the Place ID, click Search Place ID.', 'google-rezensionen-api' ) ?>
+                                    <?= __( 'If you do not know the Place ID, click Search Place ID.', 'google-rezensionen-api' ) ?>
                                 </div>
 
                                 <div class="d-lg-flex d-block flex-wrap mt-4">
@@ -150,17 +152,17 @@ $api_sync_settings = $dbData->api_sync_settings;
                                     <div class="card-title text-center py-2">
                                         <b><?= __( 'A Place ID is required to retrieve reviews.', 'google-rezensionen-api' ) ?></b><br>
                                         <small class="small d-block mt-2" style="font-size: .8rem">
-											<?= __( '<b class="strong-font-weight">How it works:</b> Simply enter an address, place, point of interest or business in the search box. Press Enter or the button and the plugin should find and display the entry.', 'google-rezensionen-api' ) ?>
+                                            <?= __( '<b class="strong-font-weight">How it works:</b> Simply enter an address, place, point of interest or business in the search box. Press Enter or the button and the plugin should find and display the entry.', 'google-rezensionen-api' ) ?>
                                         </small>
                                     </div>
                                 </div>
                                 <hr>
-								<?php if ( $dbData->app_settings->completion_aktiv ): ?>
+                                <?php if ( $dbData->app_settings->completion_aktiv ): ?>
                                     <div id="searchPlaceIDParent">
                                         <div id="countriesSearchColl" class="collapse show"
                                              data-bs-parent="#searchPlaceIDParent">
                                             <h6><i class="wp-color fa fa-search"></i>&nbsp;
-												<?= __( 'In which country would you like to search', 'google-rezensionen-api' ) ?>
+                                                <?= __( 'In which country would you like to search', 'google-rezensionen-api' ) ?>
                                             </h6>
                                             <div class="input-group mb-3  bg-custom-gray rounded no-dataset-caret p-4">
                                                 <div class="data-set-select-icon flex-fill" style="margin-right: -2rem">
@@ -171,13 +173,13 @@ $api_sync_settings = $dbData->api_sync_settings;
                                                            placeholder="<?= __( 'Type to search', 'google-rezensionen-api' ) ?>...">
 
                                                     <datalist id="datalistOptions">
-														<?php
-														$countries = apply_filters( $this->basename . '/get_countries_select', '' );
-														if ( $countries->status ): foreach ( $countries->record as $tmp ):
-														$key = key( $tmp ); ?>
+                                                        <?php
+                                                        $countries = apply_filters( $this->basename . '/get_countries_select', '' );
+                                                        if ( $countries->status ): foreach ( $countries->record as $tmp ):
+                                                        $key = key( $tmp ); ?>
                                                         <option value="<?= $tmp->code ?> - <?= $tmp->$key ?>">
-															<?php endforeach;
-															endif; ?>
+                                                            <?php endforeach;
+                                                            endif; ?>
                                                     </datalist>
                                                 </div>
                                                 <div class="d-flex flex-wrap align-items-center">
@@ -196,7 +198,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                              data-bs-parent="#searchPlaceIDParent">
                                             <h6>
                                                 <i class="wp-color fa fa-search ms-1"></i>&nbsp;
-												<?= __( 'Google Search: Enter company, name or address', 'google-rezensionen-api' ) ?>
+                                                <?= __( 'Google Search: Enter company, name or address', 'google-rezensionen-api' ) ?>
                                             </h6>
                                             <form class="dynamic_forms_input" autocomplete="off">
                                                 <input type="hidden" name="method" value="get_details_by_place_id">
@@ -212,25 +214,25 @@ $api_sync_settings = $dbData->api_sync_settings;
                                                                aria-describedby="placeIDInputSearchBtn"></div>
                                                     <button class="btn btn-blue ms-auto"
                                                             type="submit" id="placeIDInputSearchBtn">
-														<?= __( 'Select', 'google-rezensionen-api' ) ?>&nbsp; <i
+                                                        <?= __( 'Select', 'google-rezensionen-api' ) ?>&nbsp; <i
                                                                 class="fa fa-angle-right"></i>
                                                     </button>
                                                 </div>
                                             </form>
                                         </div><!--collapse-->
                                     </div><!--parent-->
-								<?php else: ?>
+                                <?php else: ?>
                                     <div class="input-group bg-custom-gray rounded p-4 mb-4">
                                         <input type="text" class="form-control no-blur"
                                                placeholder="<?= __( 'Enter an address, shop or place of interest', 'google-rezensionen-api' ) ?>"
                                                aria-label="Search" aria-describedby="placeIDGoogleInputSearchBtn">
                                         <button class="btn btn-blue"
                                                 type="button" id="placeIDGoogleInputSearchBtn">
-											<?= __( 'Search', 'google-rezensionen-api' ) ?>&nbsp; <i
+                                            <?= __( 'Search', 'google-rezensionen-api' ) ?>&nbsp; <i
                                                     class="fa fa-angle-right"></i>
                                         </button>
                                     </div>
-								<?php endif; ?>
+                                <?php endif; ?>
                                 <!-- MAP-->
                                 <div class="googleMap">
                                     <div id="map"></div>
@@ -267,7 +269,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                     <div class="card-title text-center py-2">
                                         <b><?= __( 'A Place ID is required to retrieve reviews.', 'google-rezensionen-api' ) ?></b><br>
                                         <small class="small d-block mt-2" style="font-size: .8rem">
-											<?= __( '<b class="strong-font-weight">How it works:</b> Simply enter an address, place, attraction or business in the search box and press enter or the button and the tool should output the Place ID.', 'google-rezensionen-api' ) ?>
+                                            <?= __( '<b class="strong-font-weight">How it works:</b> Simply enter an address, place, attraction or business in the search box and press enter or the button and the tool should output the Place ID.', 'google-rezensionen-api' ) ?>
                                         </small>
                                     </div>
                                 </div>
@@ -297,7 +299,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                     <div class="card-title text-center py-3">
                                         <b><?= __( 'This plugin uses the Google Maps service.', 'google-rezensionen-api' ) ?></b><br>
                                         <small class="small" style="font-size: .75rem">
-											<?= __( 'The provider is', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'The provider is', 'google-rezensionen-api' ) ?>
                                             Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4,
                                             Irland.
                                         </small>
@@ -309,11 +311,11 @@ $api_sync_settings = $dbData->api_sync_settings;
                                                    name="policy_checked"
                                                    id="policyChecked" required>
                                             <label class="form-check-label" for="policyChecked">
-												<?= __( 'I accept the privacy ', 'google-rezensionen-api' ) ?>
+                                                <?= __( 'I accept the privacy ', 'google-rezensionen-api' ) ?>
                                                 <a class="link-neutral text-decoration-none strong-font-weight"
                                                    target="_blank"
                                                    href="https://policies.google.com/privacy?hl=<?= $lang ?>">
-													<?= __( 'policy', 'google-rezensionen-api' ) ?>
+                                                    <?= __( 'policy', 'google-rezensionen-api' ) ?>
                                                 </a>
                                             </label>
                                         </div>
@@ -370,19 +372,19 @@ $api_sync_settings = $dbData->api_sync_settings;
                                 <div class="row g-2">
                                     <div class="col-xl-6 col-12 mb-4">
                                         <label for="staticRoadMap" class="form-label strong-font-weight mb-2">
-											<?= __( 'Google Maps', 'google-rezensionen-api' ) ?>  <?= __( 'Map type', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'Google Maps', 'google-rezensionen-api' ) ?>  <?= __( 'Map type', 'google-rezensionen-api' ) ?>
                                             <small class="small fw-normal">( <?= __( 'Static Map', 'google-rezensionen-api' ) ?>
                                                 )</small>
                                         </label>
                                         <select class="form-select no-blur mw-100" name="google_map_type"
                                                 id="staticRoadMap">
-											<?php
-											$select = apply_filters( $this->basename . '/google_api_selects', 'map_type_select' );
-											foreach ( $select as $key => $val ) :
-												$api_sync_settings->google_map_type == $key ? $sel = 'selected' : $sel = '';
-												?>
+                                            <?php
+                                            $select = apply_filters( $this->basename . '/google_api_selects', 'map_type_select' );
+                                            foreach ( $select as $key => $val ) :
+                                                $api_sync_settings->google_map_type == $key ? $sel = 'selected' : $sel = '';
+                                                ?>
                                                 <option value="<?= $key ?>"<?= $sel ?>><?= $val ?></option>
-											<?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -393,7 +395,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                 <div class="row g-2">
                                     <div class="col-xl-6 col-12 mb-3">
                                         <label for="InputHorizontal" class="form-label strong-font-weight mb-2">
-											<?= __( 'Card', 'google-rezensionen-api' ) ?> <?= __( 'Horizontal', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'Card', 'google-rezensionen-api' ) ?> <?= __( 'Horizontal', 'google-rezensionen-api' ) ?>
                                             (px)
                                         </label>
                                         <input type="number" name="horizontal_size"
@@ -404,7 +406,7 @@ $api_sync_settings = $dbData->api_sync_settings;
 
                                     <div class="col-xl-6 col-12 mb-3">
                                         <label for="InputVertical" class="form-label strong-font-weight mb-2">
-											<?= __( 'Card', 'google-rezensionen-api' ) ?>  <?= __( 'Vertical', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'Card', 'google-rezensionen-api' ) ?>  <?= __( 'Vertical', 'google-rezensionen-api' ) ?>
                                             (px)
                                         </label>
                                         <input type="number" name="vertical_size"
@@ -414,25 +416,25 @@ $api_sync_settings = $dbData->api_sync_settings;
 
                                     <div class="col-xl-6 col-12 mb-3">
                                         <label for="ImageFormat" class="form-label strong-font-weight mb-2">
-											<?= __( 'Google Maps', 'google-rezensionen-api' ) ?>  <?= __( 'Image format', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'Google Maps', 'google-rezensionen-api' ) ?>  <?= __( 'Image format', 'google-rezensionen-api' ) ?>
                                             <small class="small fw-normal">( <?= __( 'Static Map', 'google-rezensionen-api' ) ?>
                                                 )</small>
                                         </label>
                                         <select class="form-select no-blur mw-100" name="map_image_format"
                                                 id="ImageFormat">
-											<?php
-											$select = apply_filters( $this->basename . '/google_api_selects', 'map_image_format' );
-											foreach ( $select as $key => $val ) :
-												$api_sync_settings->map_image_format == $key ? $sel = 'selected' : $sel = '';
-												?>
+                                            <?php
+                                            $select = apply_filters( $this->basename . '/google_api_selects', 'map_image_format' );
+                                            foreach ( $select as $key => $val ) :
+                                                $api_sync_settings->map_image_format == $key ? $sel = 'selected' : $sel = '';
+                                                ?>
                                                 <option value="<?= $key ?>"<?= $sel ?>><?= $val ?></option>
-											<?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
 
                                     <div class="col-xl-6 col-12 mb-3">
                                         <label for="InputCardZoom" class="form-label strong-font-weight mb-2">
-											<?= __( 'Card', 'google-rezensionen-api' ) ?>  <?= __( 'Zoom', 'google-rezensionen-api' ) ?>
+                                            <?= __( 'Card', 'google-rezensionen-api' ) ?>  <?= __( 'Zoom', 'google-rezensionen-api' ) ?>
                                         </label>
                                         <input type="number" name="static_card_zoom"
                                                value="<?= $api_sync_settings->static_card_zoom ?>"
@@ -444,7 +446,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                                            type="checkbox"
                                            id="CheckScale2"<?= $api_sync_settings->scale2_aktiv ? 'checked' : '' ?>>
                                     <label class="form-check-label" for="CheckScale2">
-										<?= __( 'Create high resolution image', 'google-rezensionen-api' ) ?>
+                                        <?= __( 'Create high resolution image', 'google-rezensionen-api' ) ?>
                                     </label>
                                 </div>
                             </form>
@@ -477,7 +479,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                 </div>
                 <div class="modal-body">
                     <h5 class="text-center strong-font-weight">
-						<?= __( 'Shortcode', 'google-rezensionen-api' ) ?>:
+                        <?= __( 'Shortcode', 'google-rezensionen-api' ) ?>:
                         <span class="rezension-shortcode pt-2 small d-block">[google_rezension id="123"]</span>
 
                     </h5>
@@ -497,7 +499,7 @@ $api_sync_settings = $dbData->api_sync_settings;
                             <hr>
                             <div class="strong-font-weight">
                                 <i class="wp-color fa fa-arrow-circle-down"></i>&nbsp;
-								<?= __( 'API synchronization settings', 'google-rezensionen-api' ) ?>
+                                <?= __( 'API synchronization settings', 'google-rezensionen-api' ) ?>
                                 <small class="small">(<?= __( 'Updates', 'google-rezensionen-api' ) ?>)</small>
                                 <sup class="text-danger">(1)</sup>
                             </div>

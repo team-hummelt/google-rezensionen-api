@@ -120,28 +120,28 @@ class Google_Rezensionen_Api_Database {
 		$table_name      = $wpdb->prefix . $this->table_google_api_rezensionen;
 		$charset_collate = $wpdb->get_charset_collate();
 		$sql             = "CREATE TABLE $table_name (
-    	place_id varchar(125) NOT NULL, 
-        aktiv tinyint(1) NOT NULL DEFAULT 1,
-        show_star_level tinyint(2) NOT NULL DEFAULT 0,
-        template_select tinyint(2) NOT NULL DEFAULT 1,
-        formatted_address varchar(255) NOT NULL,
-        address_components text,
-        types text,
-        name  varchar(125) NOT NULL, 
-        website varchar(255) NULL,
-        map_url varchar(165) NOT NULL, 
-        map_image varchar(255) NULL, 
-        map_settings text,
-        user_rating varchar(6) NOT NULL DEFAULT '0',
-        user_ratings_total int(6) NOT NULL DEFAULT 0,
-        user_rezensionen text,
-        formatted_phone_number varchar(255) NULL,
-        international_phone_number varchar(255) NULL,
-        automatic_aktiv tinyint(1) NOT NULL DEFAULT 1,
-        synchronization_intervall tinyint(2) NOT NULL DEFAULT 2,
-        next_synchronization varchar(28) NULL,
-        last_update varchar(28) NULL,
-        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    	`place_id` varchar(125) NOT NULL, 
+        `aktiv` tinyint(1) NOT NULL DEFAULT 1,
+        `show_star_level` tinyint(2) NOT NULL DEFAULT 0,
+        `template_select` tinyint(2) NOT NULL DEFAULT 1,
+        `formatted_address` varchar(255) NOT NULL,
+        `address_components` text,
+        `types` text,
+        `reviews` longtext NOT NULL DEFAULT '',
+        `name`  varchar(125) NOT NULL, 
+        `website` varchar(255) NULL,
+        `map_url` varchar(165) NOT NULL, 
+        `map_image` varchar(255) NULL, 
+        `map_settings` text,
+        `user_rating` varchar(6) NOT NULL DEFAULT '0',
+        `user_ratings_total` int(6) NOT NULL DEFAULT 0,
+        `formatted_phone_number` varchar(255) NULL,
+        `international_phone_number` varchar(255) NULL,
+        `automatic_aktiv` tinyint(1) NOT NULL DEFAULT 1,
+        `synchronization_intervall` tinyint(2) NOT NULL DEFAULT 2,
+        `next_synchronization` varchar(28) NULL,
+        `last_update` varchar(28) NULL,
+        `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
        PRIMARY KEY (place_id)
      ) $charset_collate;";
 		dbDelta( $sql );
@@ -243,7 +243,7 @@ class Google_Rezensionen_Api_Database {
 	private function set_default_google_api_rezensionen_countries() {
 		$file      = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'countries.csv';
 		$countries = $this->google_api_csv_to_array( $file, ';' );
-		if ( ! is_array( $countries ) ) {
+		if (!is_array( $countries )) {
 			exit();
 		}
 
@@ -310,6 +310,7 @@ class Google_Rezensionen_Api_Database {
 				'aktiv' => $record->aktiv,
 				'user_ratings_total'   => $record->user_ratings_total,
 				'user_rating'   => $record->user_rating,
+                'reviews' => $record->reviews,
 				'formatted_address'  => $record->formatted_address,
 				'address_components' => $record->address_components,
 				'types' => $record->types,
@@ -322,7 +323,7 @@ class Google_Rezensionen_Api_Database {
 				'next_synchronization'   => $record->next_synchronization,
 				'last_update' => $record->last_update,
 			),
-			array( '%s','%d','%d','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')
+			array( '%s','%d','%d','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')
 		);
 		$return = new stdClass();
 		if (!$wpdb->insert_id) {
@@ -425,8 +426,10 @@ class Google_Rezensionen_Api_Database {
 				}
 			}
 
+
 			$record->place_id                   = $tmp->place_id;
 			$record->formatted_address          = $result['formatted_address'];
+            $record->reviews                    = $result['reviews'];
 			$record->name                       = $result['name'];
 			$record->website                    = $result['website'];
 			$record->map_url                    = $result['url'];
@@ -485,6 +488,7 @@ class Google_Rezensionen_Api_Database {
 				'formatted_address'  => $record->formatted_address,
 				'address_components' => $record->address_components,
 				'types' => $record->types,
+                'reviews' => $record->reviews,
 				'name'   => $record->name,
 				'website'   => $record->website,
 				'map_url'   => $record->map_url,
@@ -498,7 +502,7 @@ class Google_Rezensionen_Api_Database {
 				'last_update' => $record->last_update,
 			),
 			array('place_id' => $record->place_id),
-			array( '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'),
+			array( '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'),
 			array('%s')
 		);
 	}
@@ -530,6 +534,7 @@ class Google_Rezensionen_Api_Database {
 				'aktiv' => $record->aktiv,
 				'user_ratings_total'   => $record->user_ratings_total,
 				'user_rating'   => $record->user_rating,
+                'reviews' => $record->review,
 				'formatted_address'  => $record->formatted_address,
 				'address_components' => $record->address_components,
 				'types' => $record->types,
@@ -543,7 +548,7 @@ class Google_Rezensionen_Api_Database {
 				'last_update' => $record->last_update,
 			),
 			array('place_id' => $record->place_id),
-			array( '%s','%d','%d','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'),
+			array( '%s','%d','%d','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'),
 			array('%s')
 		);
 	}

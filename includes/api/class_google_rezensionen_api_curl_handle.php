@@ -149,8 +149,10 @@ class Google_Rezensionen_Api_Curl_Handle {
 				$response->record = $data['results'];
 				break;
 			case'get_rezension_by_place_id':
-				$url = $settings->google_api_url . "place/details/json?placeid=$string&fields=name,url,user_ratings_total,rating,formatted_address,types,address_components,geometry/location,formatted_phone_number,international_phone_number,website&key=" . $settings->google_api_key;
-				$record = $this->curl_google_api_response( $url );
+
+				$url = $settings->google_api_url . "place/details/json?placeid=$string&fields=name,url,user_ratings_total,rating,formatted_address,types,address_components,geometry/location,formatted_phone_number,international_phone_number,website,reviews&language=de&key=" . $settings->google_api_key;
+                //$url = $settings->google_api_url . "place/details/json?placeid=$string&reviews&key=" . $settings->google_api_key;
+                $record = $this->curl_google_api_response( $url );
 
 				if(!$record->status || !$record->http_status == '200'){
 					return $response;
@@ -170,9 +172,6 @@ class Google_Rezensionen_Api_Curl_Handle {
 
 	public function get_google_api_static_map($record): string {
 		global $google_api_database;
-		$response         = new stdClass();
-		$response->status = false;
-		$response->count  = 0;
 		$settings = $google_api_database->getHupaGoogleRezensionenApiSettings();
 		$app_settings = $settings->app_settings;
 		$static_settings = $settings->api_sync_settings;
@@ -205,14 +204,13 @@ class Google_Rezensionen_Api_Curl_Handle {
 				CURLOPT_URL            => $url,
 				CURLOPT_SSL_VERIFYPEER => false,
 				CURLOPT_SSL_VERIFYHOST => false,
-				CURLOPT_TIMEOUT        => 30,
+				CURLOPT_TIMEOUT        => 45,
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_HTTPHEADER     => array()
 			)
 		);
 		$response            = curl_exec( $ch );
 		$return              = new stdClass();
-		$return->status      = false;
 		$return->http_status = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
 		$return->status      = false;
 		if ( curl_errno( $ch ) ) {

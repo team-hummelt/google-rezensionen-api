@@ -12,11 +12,13 @@ namespace Rezensionen\AdminRegister;
  */
 
 use Google_Rezensionen_Api;
+use GoogleRezension\Extensions\WWDH_Api_Ajax;
 use Hupa\RezensionenApi\Google_Rezensionen_Api_Defaults_Trait;
 use Rezensionen\AdminAjax\Google_Rezensionen_Api_Admin_Ajax;
 use Rezensionen\Endpoints\Google_Rezensionen_Api_Block_Callback;
 use Rezensionen\LicenseAjax\Hupa_Api_License_Ajax;
 //use Rezensionen\Widget\Google_Rezension_Api_Widget;
+use Rezensionen\SrvApi\Api_Request_Exec;
 use Twig\Environment;
 
 
@@ -225,6 +227,8 @@ class Google_Rezensionen_Api_Admin {
 		wp_localize_script( 'google-rezensionen-script', 'rezensionen_ajax_obj', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    => $title_nonce,
+            'extension_preview_url' => GOGGLE_REZENSION_EXTENSION_PREVIEW_URL,
+            'ext_lang'=> apply_filters('get_preview_language_url','')
 		) );
 	}
 
@@ -254,6 +258,44 @@ class Google_Rezensionen_Api_Admin {
 		wp_send_json( $adminGoogleApiAjaxHandle->google_rezensionen_api_admin_ajax_handle() );
 	}
 
+    /**
+     * Register BS-Formular2 AJAX API RESPONSE HANDLE
+     *
+     * @since    1.0.0
+     */
+    public function prefix_ajax_GRExtensionAPIHandle()
+    {
+
+        check_ajax_referer('google_rezensionen_api_admin_handle');
+        /**
+         * The class for defining AJAX in the admin area.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/ajax/class_wwdh_api_ajax.php';
+        $adminAjaxHandle = new WWDH_Api_Ajax($this->version, $this->basename, $this->main);
+        wp_send_json($adminAjaxHandle->wwdh_api_ajax_handle());
+    }
+
+    public function check_install_extension(){
+        //apply_filters($this->basename.'/check_extensions_installs','');
+        $time = get_option($this->basename.'/wwdh_extension_check') + GOOGLE_REZENSION_UPDATE_EXTENSION_TIME;
+        if($time < current_time('timestamp')) {
+            apply_filters($this->basename.'/check_extensions_installs','');
+            update_option($this->basename.'/wwdh_extension_check', current_time('timestamp'));
+        }
+
+
+
+    }
+
+    public function check_srv_api_config() {
+        $config = $this->main->get_plugin_api_config();
+        if(!$config->rest_url) {
+            $config->rest_url =  rest_url('plugin/'.$this->basename.'/v'.$this->version.'/');
+            $config->site_url = site_url();
+            $config->license = 0;
+            $config->basename = $this->basename;
+        }
+    }
 
 	/**
 	 * Register GOOGLE REZENSIONEN API REGISTER GUTENBERG BLOCK TYPE
@@ -347,6 +389,10 @@ class Google_Rezensionen_Api_Admin {
 	 * @since    1.0.0
 	 */
 	public function load_google_rezensionen_admin_scripts(): void {
+
+        wp_enqueue_style($this->basename . '-bootstrap-icons', plugin_dir_url(__DIR__) . 'includes/tools/bootstrap/bootstrap-icons.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->basename . '-sweetalert2', plugin_dir_url(__DIR__) . 'includes/tools/sweetalert2/sweetalert2.min.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->basename . '-animate', plugin_dir_url(__DIR__) . 'includes/tools/animate.min.css', array(), $this->version, 'all');
 		//TODO FontAwesome / Bootstrap
 		wp_enqueue_style( $this->basename . '-admin-bs-style', plugins_url( $this->basename ) . '/admin/css/bs/bootstrap.min.css', array(), $this->version, false );
 		// TODO ADMIN ICON
@@ -356,7 +402,9 @@ class Google_Rezensionen_Api_Admin {
 		wp_enqueue_style( $this->basename . '-data-table-style', plugins_url( $this->basename ) . '/admin/css/tools/dataTables.bootstrap5.min.css', array(), $this->version, false );
 
 		wp_enqueue_script( $this->basename.'-bs-bundle', plugins_url( $this->basename ) . '/admin/js/bs/bootstrap.bundle.min.js', array(), $this->version, true );
-		wp_enqueue_script( $this->basename . '-jquery-table-js', plugins_url( $this->basename ) . '/admin/js/tools/data-table/jquery.dataTables.min.js', array(), $this->version, true );
+        wp_enqueue_script($this->basename . '-sweetalert2', plugin_dir_url(__DIR__) . 'includes/tools/sweetalert2/sweetalert2.all.min.js', array(), $this->version, true);
+        wp_enqueue_script($this->basename . '-extension', plugin_dir_url(__FILE__) . 'js/google-rezension-extension.js', array('jquery'), $this->version, true);
+        wp_enqueue_script( $this->basename . '-jquery-table-js', plugins_url( $this->basename ) . '/admin/js/tools/data-table/jquery.dataTables.min.js', array(), $this->version, true );
 		wp_enqueue_script( $this->basename . '-bs5-data-table', plugins_url( $this->basename ) . '/admin/js/tools/data-table/dataTables.bootstrap5.min.js', array(), $this->version, true );
 		wp_enqueue_script( $this->basename . '-api', plugins_url( $this->basename ) . '/admin/js/license-api.js', array( 'jquery' ), $this->version, true );
 		wp_enqueue_script( $this->basename, plugins_url( $this->basename ) . '/admin/js/google-rezensionen-api-admin.js', array( 'jquery' ), $this->version, true );

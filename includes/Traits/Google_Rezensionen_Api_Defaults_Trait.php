@@ -20,6 +20,24 @@ trait Google_Rezensionen_Api_Defaults_Trait
 	protected string $table_google_api_rezensionen = 'api_rezensionen';
 	protected string $table_countries = 'api_countries';
 
+    //API Options
+    protected string $api_url = 'https://start.hu-ku.com/theme-update/api/v2/';
+    protected string $public_api_token_uri = 'public/token';
+    protected string $public_api_support_uri = 'public';
+    protected string $api_config_uri = 'config';
+    protected string $api_config_resource_uri = 'config/resource';
+    protected string $public_api_public_resource_uri = 'public/resource';
+    protected string $public_api_public_preview_uri = 'public/preview';
+    protected string $kunden_login_url = 'https://start.hu-ku.com/theme-update/kunden-web';
+
+    // Get activate Token
+    protected string $extension_api_activate_uri = 'jwt/extension/license/activate/';
+    //Resource Token
+    protected string $extension_api_id_rsa_token = 'jwt/extension/license/token/';
+    // License Resource URI
+    protected string $extension_api_resource_uri = 'jwt/extension/license/resource';
+    protected string $extension_api_extension_download = 'jwt/extension/download';
+
     //SETTINGS DEFAULT OBJECT
     protected array $google_rezensionen_api_defaults;
 
@@ -138,6 +156,7 @@ trait Google_Rezensionen_Api_Defaults_Trait
 			        'synchronize_now' => __('Synchronize now', 'google-rezensionen-api' ),
 					'to_the_overview' => __('to the overview', 'google-rezensionen-api' ),
 			        'no_api_key_found' => __( 'API-KEY not found', 'google-rezensionen-api' ),
+
 					'no_key_info_one' => sprintf( __( 'To be able to create reviews, you need an  <b class="strong-font-weight">API KEY</b>. You can enter your API KEY under <a class="strong-font-weight" href="%s">Settings Reviews</a>.  You can find out how to create an API KEY <a target="_blank" class="fw-normal"
                                               href="https://developers.google.com/my-business/content/basic-setup">here</a>.', 'google-rezensionen-api' ), admin_url() . 'options-general.php?page=google-api-rezensionen-options' ),
 					'no_key_info_second' => __( 'You will need the My Business API to output reviews.<br> The Google My Business API is an automated process that allows authorized individuals to manage location data for Google Maps.', 'google-rezensionen-api' ),

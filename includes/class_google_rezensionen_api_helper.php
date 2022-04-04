@@ -120,6 +120,12 @@ class Google_Rezensionen_Api_Helper {
 		return str_shuffle( $stack );
 	}
 
+    public function generate_api_config_key():string {
+        $updateKey = strtoupper($this->getGoogleApi2GenerateRandomId(24, 0, 8));
+        $updateKey = chunk_split($updateKey, 6, '-');
+        return substr($updateKey,0,27);
+    }
+
 	/**
 	 * @param float $bytes
 	 *
@@ -513,7 +519,11 @@ class Google_Rezensionen_Api_Helper {
 		];
 
 		if($type){
-            return $types[$type];
+            if(!isset($types[$type])){
+                return '';
+            }else {
+                return $types[$type];
+            }
 		}
 		return $types;
 	}
