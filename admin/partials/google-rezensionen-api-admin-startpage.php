@@ -16,7 +16,7 @@ $lang   = substr( get_bloginfo( 'language' ), 0, 2 );
 $dbData = apply_filters( $this->basename . '/get_settings', '' );
 $dbData->app_settings->google_api_key ? $status = true : $status = false;
 $api_sync_settings = $dbData->api_sync_settings;
-
+//print_r(get_option("{$this->basename}_update_config"));
 ?>
 <div class="wp-bs-starter-wrapper">
     <div class="container">

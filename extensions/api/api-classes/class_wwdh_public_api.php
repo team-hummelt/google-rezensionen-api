@@ -99,17 +99,17 @@ class Wwdh_Public_Api
         $args = $this->wwdh_post_args($body);
 
         $response = wp_remote_post($url, $args);
-
+print_r($url);
 
         if (is_wp_error($response)) {
+
             $apiResponse->msg = $response->get_error_message();
             exit();
         }
 
         if (is_array($response)) {
             $query = json_decode($response['body']);
-
-            if (isset($query->error)) {
+            if (isset($query->error) || isset($query->status) && !$query->status) {
                 try {
                     $this->wwdh_get_jwt_token();
                 } catch (Exception $e){
@@ -119,6 +119,7 @@ class Wwdh_Public_Api
         }
 
             $response = wp_remote_post($url, $args);
+
             if (is_wp_error($response)) {
                 $apiResponse->msg = $response->get_error_message();
                 exit();

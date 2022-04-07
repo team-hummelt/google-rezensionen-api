@@ -1,9 +1,11 @@
 <?php
+
 namespace Rezensionen\SrvApi\Endpoint;
 
 
 use Google_Rezensionen_Api;
 use Google_Rezensionen_Rest_Extension;
+use Hupa\RezensionenApi\Google_Rezensionen_Api_Defaults_Trait;
 use stdClass;
 use WP_Error;
 use WP_REST_Controller;
@@ -22,7 +24,8 @@ use WP_REST_Server;
 
 defined('ABSPATH') or die();
 
-class Srv_Api_Enpoint {
+class Srv_Api_Enpoint extends WP_REST_Controller
+{
 
     /**
      * Store plugin main class to allow public access.
@@ -51,7 +54,15 @@ class Srv_Api_Enpoint {
      */
     private string $version;
 
-    public function __construct($plugin_name,$plugin_version,  Google_Rezensionen_Api $main ) {
+    /**
+     * TRAIT of Default Settings.
+     *
+     * @since    1.0.0
+     */
+    use Google_Rezensionen_Api_Defaults_Trait;
+
+    public function __construct($plugin_name, $plugin_version, Google_Rezensionen_Api $main)
+    {
         $this->main = $main;
         $this->basename = $plugin_name;
         $this->version = $plugin_version;
@@ -65,7 +76,7 @@ class Srv_Api_Enpoint {
     {
 
         $version = $this->version;
-        $namespace = 'plugin/'.$this->basename.'/v' . $version;
+        $namespace = 'plugin/' . $this->basename . '/v' . $version;
         $base = '/';
 
         @register_rest_route(
@@ -78,6 +89,15 @@ class Srv_Api_Enpoint {
             )
         );
 
+        @register_rest_route(
+            $namespace,
+            $base . '(?P<method>[\S^/]+)',
+            array(
+                'methods' => WP_REST_Server::READABLE,
+                'callback' => array($this, 'plugin_google_rezensionen_api_rest_endpoint'),
+                'permission_callback' => array($this, 'permissions_check')
+            )
+        );
         @register_rest_route(
             $namespace,
             $base . '(?P<method>[\S^/]+)',
@@ -105,34 +125,63 @@ class Srv_Api_Enpoint {
 
     }
 
-    /**
-     * Get one item from the collection.
-     *
-     * @param WP_REST_Request $request Full data about the request.
-     *
-     * @return WP_Error|WP_REST_Response
-     */
     public function plugin_google_rezensionen_api_rest_post_endpoint(WP_REST_Request $request) {
-
-        $method = $request->get_param('method');
-        $data = $this->prepare_item_for_response($method);
+        $data = $this->get_item($request);
         return rest_ensure_response($data);
     }
 
+    /**
+     * Get one item from the collection.
+     *
+     *
+     * @return WP_Error|WP_REST_Response
+     */
+    public function plugin_google_rezensionen_api_rest_endpoint()
+    {
 
-    public function prepare_item_for_response($method):array{
+        $response = new WP_REST_Response();
+        $data = [
+            'status' => $response->get_status(200),
+            'slug' => $this->basename,
+            'version' => $this->version
+        ];
 
-        $response = [];
-        switch ($method){
-            case'test':
-                    return [
-                        'test' => 'meine Daten',
-                        'post'=>$_POST
-                    ];
+        return rest_ensure_response($data);
+    }
+
+    public function get_item($request)
+    {
+        $method = $request->get_param('method');
+        $response = new WP_REST_Response();
+        global $wpRemoteExec;
+
+        /**
+         * Fires after a message is created via the REST API
+         *
+         * @param object $message Data used to create message
+         * @param WP_REST_Request $request Request object.
+         * @param bool $bool A boolean that is false.
+         */
+
+        switch ($method) {
+            case'update-config':
+                $body =  $request->get_json_params();
+                $makeJob = $wpRemoteExec->make_api_exec_job($method, $body);
+                if($makeJob['status'] != 200) {
+                    return new WP_Error($makeJob['code'], __($makeJob['msg']), array('status' => $makeJob['status']));
+                }
+                $response->set_data([
+                    'data' => $makeJob
+                ]);
+                $response = rest_ensure_response($response);
+                $response->set_status(200);
+                return $response;
+            default:
+                return new WP_Error('rest_update_failed', __('Method not found.'), array('status' => 404));
         }
 
-        return $response;
     }
+
 
     /**
      * Check if a given request has access.
@@ -143,4 +192,6 @@ class Srv_Api_Enpoint {
     {
         return '__return_true';
     }
+
+
 }

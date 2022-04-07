@@ -410,7 +410,7 @@ final class WWDH_Api_Ajax
 
                 try {
                     $apiData = apply_filters($this->basename . '/get_api_post_resource', $body, $license);
-                    //print_r($apiData);
+
                 } catch (Exception $e) {
 
                     if ($e->getMessage() == 'Client access data is unknown.') {
@@ -418,6 +418,12 @@ final class WWDH_Api_Ajax
                         apply_filters($this->basename . '_delete_extension', $license);
                     }
 
+                    return $responseJson;
+                }
+
+                if(!$apiData->aktiv){
+                    apply_filters($this->basename . '_delete_extension', $license);
+                    $responseJson->msg = 'Erweiterung nicht aktiviert.';
                     return $responseJson;
                 }
 

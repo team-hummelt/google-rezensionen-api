@@ -28,6 +28,7 @@ use Rezensionen\Endpoints\Google_Rezensionen_Api_Rest_Endpoint;
 use Rezensionen\Helper\Google_Rezensionen_Api_Helper;
 use Rezensionen\PublicRegister\Google_Rezensionen_Api_Public;
 use Rezensionen\Shortcode\Google_Rezensionen_Shortcode;
+use Rezensionen\SrvApi\Endpoint\Make_remote_exec;
 use Rezensionen\SrvApi\Endpoint\Srv_Api_Enpoint;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -310,6 +311,7 @@ class Google_Rezensionen_Api
         $this->define_google_api_shortcodes();
         $this->define_google_api_classic_widget();
         $this->register_srv_rest_api_routes();
+        $this->register_wp_remote_exec();
 
     }
 
@@ -402,11 +404,18 @@ class Google_Rezensionen_Api
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class_google_rezensionen_api_helper.php';
 
+
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class_google_rezensionen_api_i18n.php';
+
+        /**
+         * Update-Checker-Autoload
+         * Git Update for Theme|Plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/update-checker/autoload.php';
 
 
         /**
@@ -457,6 +466,13 @@ class Google_Rezensionen_Api
 
 
         //JOB SRV API Endpoint
+        /**
+         * SRV WP-Remote Exec
+         * core plugin.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/srv-api/config/class_make_remote_exec.php';
+
+
         /**
          * SRV API Endpoint
          * core plugin.
@@ -667,6 +683,19 @@ class Google_Rezensionen_Api
     }
 
     /**
+     * Register API SRV Rest-Api Endpoints
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function register_wp_remote_exec()
+    {
+        global $wpRemoteExec;
+        $wpRemoteExec = Make_Remote_Exec::instance($this->plugin_name, $this->get_version(), $this->main);
+    }
+
+    /**
      * Register API Rest-Api Callbacks
      * of the plugin.
      *
@@ -700,6 +729,9 @@ class Google_Rezensionen_Api
         // Classic Widget
         //$this->loader->add_action('widgets_init', $plugin_admin, 'register_google_rezension_classic_widget');
 
+        //JOB UPDATE CHECKER
+        $this->loader->add_action('init', $plugin_admin, 'set_google_rezensionen_update_checker');
+        $this->loader->add_action('in_plugin_update_message-'.GOOGLE_REZENSIONEN_API_SLUG_PATH.'/'.GOOGLE_REZENSIONEN_API_SLUG_PATH.'.php', $plugin_admin, 'google_rezensionen_api_show_upgrade_notification',10,2);
 
         /** Register Plugin Settings Menu
          * @since    1.0.0

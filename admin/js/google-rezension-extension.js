@@ -282,17 +282,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const sendAsynchron = async(data = {}, is_formular = true) => {
         let request = await makeRequest(data, is_formular);
         if (request.status) {
-            let data = JSON.parse( request.response);
-            let detailId = document.getElementById('twigRenderLicense');
-            let LicenseCollapse = document.getElementById('extensionLicense')
-            LicenseCollapse.setAttribute('data-bs-toggle', 'true');
-            detailId.innerHTML = data.template;
+            if(data.status){
+                let data = JSON.parse( request.response);
+                let detailId = document.getElementById('twigRenderLicense');
+                let LicenseCollapse = document.getElementById('extensionLicense')
+                LicenseCollapse.setAttribute('data-bs-toggle', 'true');
+                detailId.innerHTML = data.template;
+            } else {
+                document.getElementById('apiErrMsg').classList.remove('d-none');
+                document.getElementById('extensionCollapseParent').classList.add('d-none')
+            }
         } else {
             alert(data.msg, 'danger', '#ajaxMsg');
         }
     }
-
-
 
     let expReportsApiConnect = document.getElementById('GoogleRezensionRestApiConnect');
     if (expReportsApiConnect) {
