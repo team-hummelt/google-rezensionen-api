@@ -9,14 +9,8 @@
 
             <div id="publicApiSettings"></div>
             <div id="cardFormulareWrapper" class="card-body pb-4" style="min-height: 72vh">
-                <div id="apiErrMsg" class="card shadow-sm m-5 d-none">
-                    <h5 class="card-header text-center py-5">
-                        <i class="font-blue bi bi-hourglass-split spin-deg"></i>&nbsp;
-                        <?= __('Extensions are being updated and will be available again shortly.', 'google-rezensionen-api') ?>
-                    </h5>
-                </div>
 
-                <div class="d-flex align-items-center extension-overview">
+               <div class="d-flex align-items-center extension-overview">
                     <h5 class="card-title">
                         <i class="font-blue bi bi-subtract"></i> <?= __('Google Rezensionen', 'google-rezensionen-api') ?>
                         <span id="currentSideTitle"><?= __('Extensions', 'google-rezensionen-api') ?></span>
@@ -58,7 +52,15 @@
                         <div id="twigRenderHelp"></div>
                     </div>
                 </div>
+
+                <div id="apiErrMsg" class="card shadow-sm m-5 d-none">
+                    <h5 class="card-header text-center py-5">
+                        <i class="font-blue bi bi-hourglass-split spin-deg"></i>&nbsp;
+                        <?= __('Extensions are being updated and will be available again shortly.', 'google-rezensionen-api') ?>
+                    </h5>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
