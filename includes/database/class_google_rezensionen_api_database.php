@@ -429,7 +429,7 @@ class Google_Rezensionen_Api_Database {
 
 			$record->place_id                   = $tmp->place_id;
 			$record->formatted_address          = $result['formatted_address'];
-            $record->reviews                    = $result['reviews'];
+            $record->reviews                    = json_encode($result['reviews']);
 			$record->name                       = $result['name'];
 			$record->website                    = $result['website'];
 			$record->map_url                    = $result['url'];
