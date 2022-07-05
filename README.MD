@@ -12,8 +12,8 @@ hummelt und partner | Werbeagentur GmbH
 * Tags: google, rezension, google rezension, privacy friendly, google privacy friendly, bewertung, google bewertung
 * Requires at least: 5.6
 * Tested up to: 5.9
-* Stable tag: 1.0.2
-* Version: 1.0.2
+* Stable tag: 1.0.3
+* Version: 1.0.3
 * Requires PHP: 7.4
 * License: MIT License
 
